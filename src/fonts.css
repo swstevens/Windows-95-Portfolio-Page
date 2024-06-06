@@ -1,0 +1,88 @@
+@font-face {
+  src: url('fonts/FitVariable-VF-Testing.woff2') format("woff2"),
+       url('fonts/FitVariable-VF-Testing.woff') format("woff");
+  font-family: 'Fit-VF';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Skyline-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Skyline-Testing.woff') format("woff");
+  font-family: 'Fit-Skyline';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Compressed-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Compressed-Testing.woff') format("woff");
+  font-family: 'Fit-Compressed';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-ExtraCondensed-Testing.woff2') format("woff2"),
+       url('fonts/Fit-ExtraCondensed-Testing.woff') format("woff");
+  font-family: 'Fit-ExtraCondensed';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Condensed-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Condensed-Testing.woff') format("woff");
+  font-family: 'Fit-Condensed';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Regular-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Regular-Testing.woff') format("woff");
+  font-family: 'Fit-Regular';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Wide-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Wide-Testing.woff') format("woff");
+  font-family: 'Fit-Wide';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-Extended-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Extended-Testing.woff') format("woff");
+  font-family: 'Fit-Extended';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-ExtraWide-Testing.woff2') format("woff2"),
+       url('fonts/Fit-ExtraWide-Testing.woff') format("woff");
+  font-family: 'Fit-ExtraWide';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-ExtraExtended-Testing.woff2') format("woff2"),
+       url('fonts/Fit-ExtraExtended-Testing.woff') format("woff");
+  font-family: 'Fit-ExtraExtended';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url('fonts/Fit-UltraExtended-Testing.woff2') format("woff2"),
+       url('fonts/Fit-UltraExtended-Testing.woff') format("woff");
+  font-family: 'Fit-UltraExtended';
+  font-style: normal;
+  font-weight: normal;
+}
+

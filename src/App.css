@@ -8,15 +8,15 @@ body,
   height: 100%;
 
 }
-
 @font-face {
-  font-family: 'MyFont';
-  src: local('MyFont'), url(./fonts/Fit-Regular-Testing.otf) format('opentype');
-  /* other formats include: 'woff2', 'truetype, 'opentype',
-                            'embedded-opentype', and 'svg' */
+  src: url('fonts/Fit-Regular-Testing.woff2') format("woff2"),
+       url('fonts/Fit-Regular-Testing.woff') format("woff");
+  font-family: 'Fit-Regular';
+  font-style: normal;
+  font-weight: normal;
 }
 
-h1 {
-  font-family: 'MyFont', sans-serif;
+.body wrapper {
+  font-family: 'Fit-Regular', sans-serif;
   font-size: 100px;
 }
