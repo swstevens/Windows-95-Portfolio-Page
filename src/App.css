@@ -26,6 +26,7 @@ body,
   padding-left: 9px;
   padding-right: 9px;
   text-align: left;
+  user-select: none; /* Standard syntax */
   /* max-height: 100px; */
 }
 
@@ -41,4 +42,6 @@ body,
 .text{
   color: #4af626;
   letter-spacing: 0.5px;
+  user-select: none; /* Standard syntax */
+
 }
