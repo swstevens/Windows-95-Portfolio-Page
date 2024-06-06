@@ -5,7 +5,7 @@ function App() {
     <>
     <div className="whole">
       <div className='wrapper'>
-        <span>loading</span>
+        <span className='text'>loading</span>
       </div>
     </div>
  </>

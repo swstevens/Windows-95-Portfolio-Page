@@ -22,10 +22,9 @@ body,
 .wrapper {
   width: fit-content;
   height: fit-content;
-  border: 3px solid rgb(0, 0, 0);
-  padding-left: 10px;
-  padding-right: 10px;
-  background: rgba(255, 255, 255, 0);
+  border: 3px solid #4af626;
+  padding-left: 9px;
+  padding-right: 9px;
   text-align: left;
   /* max-height: 100px; */
 }
@@ -36,4 +35,10 @@ body,
   align-items: center;
   text-align: center;
   min-height: 100vh;
+  background-color: rgb(49, 49, 49);
+}
+
+.text{
+  color: #4af626;
+  letter-spacing: 0.5px;
 }
