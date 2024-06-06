@@ -3,8 +3,11 @@ import './App.css'
 function App() {
   return (
     <>
-    <link rel="stylesheet" href="./fonts.css" />
-    <body>hello</body>
+    <div className="whole">
+      <div className='wrapper'>
+        <span>loading</span>
+      </div>
+    </div>
  </>
  )
 }
