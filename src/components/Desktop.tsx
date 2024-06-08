@@ -1,11 +1,16 @@
 import React from 'react';
+import DesktopShortcut from './DesktopShortcut';
 
 export interface DesktopProps {}
 
 
 const Desktop: React.FC<DesktopProps> = (props) => {
     return ( 
-        <div style={styles.desktop}></div>
+        <div style={styles.desktop}>
+            <DesktopShortcut
+                shortcutName={"banana"}
+            />
+        </div>
     )
 }
 
