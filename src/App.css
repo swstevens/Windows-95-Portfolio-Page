@@ -1,59 +1,90 @@
-
-html{
-  overflow-y: visible;
-  background-color: rgb(32, 32, 32);
-}
-body{
-  height: auto;
-}
-#root {
-  position: absolute;
-  top: 0;
-  left: 0;
+.App {
+  height: 100vh;
+  /* width: 1280px; */
   width: 100%;
+  /* min-height: 100%; */
+  image-rendering: pixelated;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+html,
+body {
   height: 100%;
-  font-family: 'Fit-Regular';
-  font-size: 72px;
-
-}
-@font-face {
-  src: url('fonts/Fit-Regular-Testing.woff2') format("woff2"),
-       url('fonts/Fit-Regular-Testing.woff') format("woff");
-  font-family: 'Fit-Regular';
-  font-style: normal;
-  font-weight: normal;
+  margin: 0;
+  overflow: hidden;
 }
 
-.wrapper {
-  width: fit-content;
-  height: fit-content;
-  border: 3px solid #4af626;
-  padding-left: 9px;
-  padding-right: 9px;
-  text-align: center;
-  user-select: none; /* Standard syntax */
-  /* max-height: 100px; */
-}
-
-.whole {
+div {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: sticky;
-  background-color: rgb(32, 32, 32);
-  padding: 5px;
-  top: 0;
 }
 
-.text{
-  color: #4af626;
-  letter-spacing: 0.5px;
-  user-select: none; /* Standard syntax */
-
+#root {
+  height: 100%;
 }
 
-.div spacer {
-  position:flex;
-  height: 400px;
-  clear:both;
+.white {
+  color: #fff;
+}
+
+
+.blinking-cursor {
+  background-color: #fff;
+  width: 0.8em;
+  height: 0.15em;
+  -webkit-animation: 0.65s blink step-end infinite;
+  -moz-animation: 0.65s blink step-end infinite;
+  -ms-animation: 0.65s blink step-end infinite;
+  -o-animation: 0.65s blink step-end infinite;
+  animation: 0.65s blink step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+      background-color: transparent;
+  }
+  50% {
+      background-color: white;
+  }
+}
+
+@-moz-keyframes blink {
+  from,
+  to {
+      background-color: transparent;
+  }
+  50% {
+      background-color: white;
+  }
+}
+
+@-webkit-keyframes blink {
+  from,
+  to {
+      background-color: transparent;
+  }
+  50% {
+      background-color: white;
+  }
+}
+
+@-ms-keyframes blink {
+  from,
+  to {
+      background-color: transparent;
+  }
+  50% {
+      background-color: white;
+  }
+}
+
+@-o-keyframes blink {
+  from,
+  to {
+      background-color: transparent;
+  }
+  50% {
+      background-color: white;
+  }
 }
