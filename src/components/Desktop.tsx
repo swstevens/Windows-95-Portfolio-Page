@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DesktopShortcut from './DesktopShortcut';
 import Window from "./Window";
 
@@ -6,16 +6,24 @@ export interface DesktopProps {}
 
 
 const Desktop: React.FC<DesktopProps> = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const showWindow = () => {
+        setIsOpen(!isOpen)
+    } 
+
     return ( 
         <>
-        <div style={styles.desktop}>
+        <div style={styles.desktop} >
+            <div onMouseDown={showWindow}>
             <DesktopShortcut
                 shortcutName={"banana"}
             />
+            </div>
         </div>
-        <Window width={250} height={250} top={25}
+        {isOpen && <Window width={250} height={250} top={25}
             left={25}
-        />
+        />}
         </>
     )
 }
