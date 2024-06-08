@@ -1,8 +1,13 @@
 
-html,
-body,
+html{
+  overflow-y: visible;
+  background-color: rgb(32, 32, 32);
+}
+body{
+  height: auto;
+}
 #root {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,7 +30,7 @@ body,
   border: 3px solid #4af626;
   padding-left: 9px;
   padding-right: 9px;
-  text-align: left;
+  text-align: center;
   user-select: none; /* Standard syntax */
   /* max-height: 100px; */
 }
@@ -34,9 +39,10 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 100vh;
+  position: sticky;
   background-color: rgb(32, 32, 32);
+  padding: 5px;
+  top: 0;
 }
 
 .text{
@@ -44,4 +50,10 @@ body,
   letter-spacing: 0.5px;
   user-select: none; /* Standard syntax */
 
+}
+
+.div spacer {
+  position:flex;
+  height: 400px;
+  clear:both;
 }
