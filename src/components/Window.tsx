@@ -109,6 +109,10 @@ const Window: React.FC<WindowProps> = (props) => {
             })}
             ref={windowRef}
             >
+                <div style={styles.windowBorderOuter}>
+                    <div style={styles.windowBorderInner}>
+                    </div>
+                </div>
             </div>
         </div>
     )
@@ -116,8 +120,23 @@ const Window: React.FC<WindowProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     window: {
-        backgroundColor: 'lightgray',
+        backgroundColor: 'LightGray',
         position: 'absolute',
+    },
+    windowBorderOuter: {
+        border: `1px solid ${'black'}`,
+        borderTopColor: 'lightGray',
+        borderLeftColor: 'lightGray',
+        flex: 1,
+    },
+    windowBorderInner: {
+        border: `1px solid ${'darkGray'}`,
+        borderTopColor: 'white',
+        borderLeftColor: 'white',
+        flex: 1,
+        padding: 2,
+
+        flexDirection: 'column',
     },
 };
 
