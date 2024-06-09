@@ -99,7 +99,7 @@ const Window: React.FC<WindowProps> = (props) => {
 
 
     return ( 
-        <div onMouseDown={startResize} ref={dragRef}>
+        <div>
             <div
             style={Object.assign({}, styles.window, {
                 width,
@@ -111,6 +111,14 @@ const Window: React.FC<WindowProps> = (props) => {
             >
                 <div style={styles.windowBorderOuter}>
                     <div style={styles.windowBorderInner}>
+                        <div
+                            style={styles.dragHitbox}
+                            onMouseDown={startDrag}
+                        ></div>
+                        <div
+                            onMouseDown={startResize}
+                            style={styles.resizeHitbox}
+                        ></div>
                     </div>
                 </div>
             </div>
@@ -137,6 +145,23 @@ const styles: StyleSheetCSS = {
         padding: 2,
 
         flexDirection: 'column',
+    },
+    dragHitbox: {
+        position: 'absolute',
+        width: 'calc(100% - 70px)',
+        height: 48,
+        zIndex: 10000,
+        top: -8,
+        left: -4,
+        cursor: 'move',
+    },
+    resizeHitbox: {
+        position: 'absolute',
+        width: 60,
+        height: 60,
+        bottom: -20,
+        right: -20,
+        cursor: 'nwse-resize',
     },
 };
 
