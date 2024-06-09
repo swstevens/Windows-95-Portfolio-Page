@@ -23,7 +23,7 @@ const Window: React.FC<WindowProps> = (props) => {
         dragStartY: any;
     }>();
 
-    const handleMouseInteract = (event:any) => {
+    const startDrag = (event:any) => {
         const { clientX, clientY } = event;
         setIsDragging(true);
         event.preventDefault();
@@ -60,9 +60,46 @@ const Window: React.FC<WindowProps> = (props) => {
         return { x, y };
     };
 
+    const startResize = (event:any) => {
+        const { clientX, clientY } = event;
+        setIsDragging(true);
+        event.preventDefault();
+        dragProps.current = {
+            dragStartX: clientX,
+            dragStartY: clientY,
+        };
+        window.addEventListener('mousemove', onResize, false);
+        window.addEventListener('mouseup', stopResize, false);
+    }
+    const onResize = ({ clientX, clientY }: any) => {
+        let { x, y } = getXYFromResizeProps(clientX, clientY);
+        setHeight(y);
+        setWidth(x);
+    }
+    const stopResize = ({ clientX, clientY }: any) => {
+        setIsDragging(false);
+        let { x, y } = getXYFromResizeProps(clientX, clientY);
+        setHeight(y);
+        setWidth(x);
+        window.removeEventListener('mousemove', onResize, false);
+        window.removeEventListener('mouseup', stopResize, false);
+    }
+    const getXYFromResizeProps = (
+        clientX: number,
+        clientY: number
+    ): { x: number; y: number } => {
+        if (!dragProps.current) return { x: 0, y: 0 };
+        const { dragStartX, dragStartY } = dragProps.current;
+
+        const x = clientX - dragStartX + width;
+        const y = clientY - dragStartY + height;
+
+        return { x, y };
+    };
+
 
     return ( 
-        <div onMouseDown={handleMouseInteract} ref={dragRef}>
+        <div onMouseDown={startResize} ref={dragRef}>
             <div
             style={Object.assign({}, styles.window, {
                 width,
