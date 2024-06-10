@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-
+import Button from './Button';
 export interface WindowProps {
     width: number;
     height: number;
     top: number;
     left: number;
+    setOpen: () => void;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -125,6 +126,23 @@ const Window: React.FC<WindowProps> = (props) => {
                             style={styles.resizeHitbox}
                         ></div>
                         <div
+                            style={Object.assign({}, styles.topBar)}
+                        >
+                            <div style={styles.topHeader}>
+                                <i className="fas fa-bars"></i>
+                                <div style={{ width: 16 }} />
+                                <p>hello this is a test</p>
+                            </div>
+                            <div style={Object.assign({}, styles.buttons)}> 
+                                <Button/>
+                                <Button/>
+                                <Button/>
+                            </div>
+                        </div>
+                        <div
+                            style={Object.assign({}, styles.spacer)}
+                        ></div>
+                        <div
                             style={Object.assign({}, styles.insetBorder, {
                                 flex: 1,
                                 alignItems: 'center',
@@ -133,7 +151,7 @@ const Window: React.FC<WindowProps> = (props) => {
                     </div>
                 </div>
             </div>
-            {<div
+            {isDragging && <div
             style={Object.assign({}, styles.checkerboard, {
                 width: indicatorWidth,
                 height: indicatorHeight,
@@ -188,6 +206,25 @@ const styles: StyleSheetCSS = {
         bottom: -20,
         right: -20,
         cursor: 'nwse-resize',
+    },
+    topBar: {
+        backgroundColor: 'blue',
+        width: '100%',
+        height: 20,
+
+        alignItems: 'center',
+        paddingRight: 2,
+        boxSizing: 'border-box',
+    },
+    topHeader: {
+        flex: 1,
+    },
+    spacer: {
+        width: '100%',
+        height: 5,  
+    },
+    buttons: {
+        alignItems: 'center',
     },
     insetBorder: {
         border: `1px solid ${'white'}`,

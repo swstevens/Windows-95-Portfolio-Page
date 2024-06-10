@@ -22,7 +22,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             </div>
         </div>
         {isOpen && <Window width={250} height={250} top={25}
-            left={25}
+            left={25} setOpen={showWindow}
         />}
         </>
     )
