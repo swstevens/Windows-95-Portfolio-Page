@@ -136,7 +136,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button/>
                                 <Button/>
-                                <Button/>
+                                <Button onClick={props.setOpen}/>
                             </div>
                         </div>
                         <div
