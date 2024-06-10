@@ -18,16 +18,44 @@ const Window: React.FC<WindowProps> = (props) => {
     const [width, setWidth] = useState(props.width);
     const [height, setHeight] = useState(props.height);
 
+    const [topStore, setTopStore] = useState(props.top);
+    const [leftStore, setLeftStore] = useState(props.left);
+    const [widthStore, setWidthStore] = useState(props.width);
+    const [heightStore, setHeightStore] = useState(props.height);
+
     const [indicatorHeight, setIndicatorHeight] = useState(height);
     const [indicatorWidth, setIndicatorWidth] = useState(width);
     const [indicatorTop, setIndicatorTop] = useState(top);
     const [indicatorLeft, setIndicatorLeft] = useState(left);
 
     const [ isDragging, setIsDragging ]  = useState(false);
+    const [isMaximized, setIsMaximized] = useState(false);
+
     const dragProps = useRef<{
         dragStartX: any;
         dragStartY: any;
     }>();
+
+    const maximize = () => {
+        if (isMaximized) {
+            setHeight(heightStore);
+            setWidth(widthStore);
+            setTop(topStore);
+            setLeft(leftStore);
+            setIsMaximized(!isMaximized)
+        } else {
+            setTopStore(top);
+            setLeftStore(left);
+            setWidthStore(width);
+            setHeightStore(height);
+            setTop(0);
+            setLeft(0);
+            setWidth(window.innerWidth);
+            setHeight(window.innerHeight);
+            setIsMaximized(!isMaximized);
+
+        }
+    }
 
     const startDrag = (event:any) => {
         const { clientX, clientY } = event;
@@ -117,14 +145,14 @@ const Window: React.FC<WindowProps> = (props) => {
             >
                 <div style={styles.windowBorderOuter}>
                     <div style={styles.windowBorderInner}>
-                        <div
+                        { !isMaximized && <div
                             style={styles.dragHitbox}
                             onMouseDown={startDrag}
-                        ></div>
-                        <div
+                        /> }
+                        { !isMaximized && <div
                             onMouseDown={startResize}
                             style={styles.resizeHitbox}
-                        ></div>
+                        />}
                         <div
                             style={Object.assign({}, styles.topBar)}
                         >
@@ -135,7 +163,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button/>
-                                <Button/>
+                                <Button onClick={maximize}/>
                                 <Button onClick={props.setOpen}/>
                             </div>
                         </div>
