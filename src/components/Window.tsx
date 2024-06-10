@@ -9,13 +9,18 @@ export interface WindowProps {
 
 const Window: React.FC<WindowProps> = (props) => {
     const windowRef = useRef<any>(null);
-    const dragRef = useRef<any>(null);
+    const indicatorRef = useRef<any>(null);
 
 
     const [top, setTop] = useState(props.top);
     const [left, setLeft] = useState(props.left);
     const [width, setWidth] = useState(props.width);
     const [height, setHeight] = useState(props.height);
+
+    const [indicatorHeight, setIndicatorHeight] = useState(height);
+    const [indicatorWidth, setIndicatorWidth] = useState(width);
+    const [indicatorTop, setIndicatorTop] = useState(top);
+    const [indicatorLeft, setIndicatorLeft] = useState(left);
 
     const [ isDragging, setIsDragging ]  = useState(false);
     const dragProps = useRef<{
@@ -36,8 +41,8 @@ const Window: React.FC<WindowProps> = (props) => {
     }
     const onDrag = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromDragProps(clientX, clientY);
-        setTop(y);
-        setLeft(x);
+        setIndicatorTop(y);
+        setIndicatorLeft(x);
     }
     const stopDrag = ({ clientX, clientY }: any) => {
         setIsDragging(false);
@@ -73,14 +78,14 @@ const Window: React.FC<WindowProps> = (props) => {
     }
     const onResize = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromResizeProps(clientX, clientY);
-        setHeight(y);
-        setWidth(x);
+        setIndicatorHeight(y);
+        setIndicatorWidth(x);
     }
     const stopResize = ({ clientX, clientY }: any) => {
         setIsDragging(false);
         let { x, y } = getXYFromResizeProps(clientX, clientY);
-        setHeight(y);
-        setWidth(x);
+        setHeight(Math.max(100,y));
+        setWidth(Math.max(100,x));
         window.removeEventListener('mousemove', onResize, false);
         window.removeEventListener('mouseup', stopResize, false);
     }
@@ -128,6 +133,21 @@ const Window: React.FC<WindowProps> = (props) => {
                     </div>
                 </div>
             </div>
+            {<div
+            style={Object.assign({}, styles.checkerboard, {
+                width: indicatorWidth,
+                height: indicatorHeight,
+                top: indicatorTop,
+                left: indicatorLeft,
+                // width,
+                // height,
+                // top,
+                // left,
+            })}
+            ref={indicatorRef}
+            
+            > 
+            </div>}
         </div>
     )
 }
@@ -174,6 +194,16 @@ const styles: StyleSheetCSS = {
         borderTopColor: 'darkGray',
         borderLeftColor: 'darkGray',
         padding: 2,
+    },
+    checkerboard: {
+        backgroundImage: `linear-gradient(45deg, black 25%, transparent 25%),
+        linear-gradient(-45deg, black 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, black 75%),
+        linear-gradient(-45deg, transparent 75%, black 75%)`,
+        backgroundSize: `4px 4px`,
+        backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
+        pointerEvents: 'none',
+        position: 'absolute',
     },
 };
 
