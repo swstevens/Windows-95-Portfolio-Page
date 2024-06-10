@@ -119,6 +119,12 @@ const Window: React.FC<WindowProps> = (props) => {
                             onMouseDown={startResize}
                             style={styles.resizeHitbox}
                         ></div>
+                        <div
+                            style={Object.assign({}, styles.insetBorder, {
+                                flex: 1,
+                                alignItems: 'center',
+                            })}
+                        ></div>
                     </div>
                 </div>
             </div>
@@ -162,6 +168,12 @@ const styles: StyleSheetCSS = {
         bottom: -20,
         right: -20,
         cursor: 'nwse-resize',
+    },
+    insetBorder: {
+        border: `1px solid ${'white'}`,
+        borderTopColor: 'darkGray',
+        borderLeftColor: 'darkGray',
+        padding: 2,
     },
 };
 
