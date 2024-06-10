@@ -164,7 +164,9 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button/>
                                 <Button onClick={maximize}/>
-                                <Button onClick={props.setOpen}/>
+                                <div style={{ paddingLeft: 2 }}>
+                                    <Button onClick={props.setOpen}/>
+                                </div>
                             </div>
                         </div>
                         <div
