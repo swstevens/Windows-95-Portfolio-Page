@@ -15,7 +15,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [left, setLeft] = useState(25);
 
     const minimize = () => {
-        setIsMinimized(!isMinimized)
+        if (isOpen) {
+            setIsMinimized(!isMinimized)
+        }
     } 
 
     const showWindow = () => {
