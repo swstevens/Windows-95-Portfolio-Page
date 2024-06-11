@@ -2,12 +2,13 @@ import React from "react";
 
 export interface ButtonProps {
     onClick?: () => void;
+    img: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick }) => {
+const Button: React.FC<ButtonProps> = (props) => {
     const handleClick = (e: any) => {
         e.preventDefault();
-        onClick && onClick();
+        props.onClick && props.onClick();
     };
     
 
@@ -15,7 +16,9 @@ const Button: React.FC<ButtonProps> = ({ onClick }) => {
         <div 
             onClick={handleClick}
         >
-            <div style={styles.button}/>
+            <div style={styles.button}>
+                <img src={props.img}/>
+            </div>
         </div>
     )
 };

@@ -167,10 +167,10 @@ const Window: React.FC<WindowProps> = (props) => {
                                 <p>hello this is a test</p>
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
-                                <Button onClick={minimizeFunc}/>
-                                <Button onClick={maximize}/>
+                                <Button onClick={minimizeFunc} img="/assets/minimize.png"/>
+                                <Button onClick={maximize} img="/assets/maximize.png"/>
                                 <div style={{ paddingLeft: 2 }}>
-                                    <Button onClick={props.setOpen}/>
+                                    <Button onClick={props.setOpen} img="/assets/close.png"/>
                                 </div>
                             </div>
                         </div>
