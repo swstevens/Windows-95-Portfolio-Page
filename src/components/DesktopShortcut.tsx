@@ -19,7 +19,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         id={`${shortcutId}`}
         style={Object.assign({}, styles.appShortcut)}
     >
-        <img src="./myComputer.png"></img>
+        <img src="/assets/myComputer.png"></img>
         <p
         id={`${shortcutId}`}
         style={Object.assign(
