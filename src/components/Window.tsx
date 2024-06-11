@@ -183,6 +183,34 @@ const Window: React.FC<WindowProps> = (props) => {
                                 alignItems: 'center',
                             })}
                         ></div>
+                        <div
+                            style={Object.assign({}, styles.spacer)}
+                        ></div>
+                        <div
+                            style={Object.assign({}, styles.bottomBar)}
+                        >   
+                            <div
+                                style={Object.assign({}, styles.insetBorder, {
+                                    height: 16,
+                                    flex: 1,
+                                    alignItems: 'center',
+                                })}
+                            >
+                                <p>test text</p>
+                            <div style={Object.assign({}, styles.buttons)}> 
+                                <div
+                                    style={{
+                                        alignItems: 'flex-end',
+                                    }}
+                                >
+                                <img src={'assets/windowResize.png'} style={{height: 12}}/>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div
+                            style={Object.assign({}, styles.spacer)}
+                        ></div>
                     </div>
                 </div>
             </div>
@@ -252,13 +280,13 @@ const styles: StyleSheetCSS = {
         boxSizing: 'border-box',
     },
     topHeader: {
-        // height:20,
+        height:20,
         flex: 1,
         alignItems: 'center',
     },
     spacer: {
         width: '100%',
-        height: 5,  
+        height: 4,  
     },
     buttons: {
         alignItems: 'center',
@@ -268,6 +296,13 @@ const styles: StyleSheetCSS = {
         borderTopColor: 'darkGray',
         borderLeftColor: 'darkGray',
         padding: 2,
+    },
+    bottomBar: {
+        flexShrink: 1,
+        width: '100%',
+        height: 16,
+
+        alignItems: 'center',
     },
     checkerboard: {
         backgroundImage: `linear-gradient(45deg, black 25%, transparent 25%),

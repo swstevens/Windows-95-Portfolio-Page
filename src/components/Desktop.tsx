@@ -6,11 +6,11 @@ export interface DesktopProps {}
 
 
 const Desktop: React.FC<DesktopProps> = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     
     const [isMinimized, setIsMinimized] = useState(false);
-    const [height, setHeight] = useState(250);
-    const [width, setWidth] = useState(250);
+    const [height, setHeight] = useState(window.innerHeight - 50);
+    const [width, setWidth] = useState(window.innerWidth - 50);
     const [top, setTop] = useState(25);
     const [left, setLeft] = useState(25);
 
