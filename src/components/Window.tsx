@@ -6,6 +6,8 @@ export interface WindowProps {
     top: number;
     left: number;
     setOpen: () => void;
+    minimize: () => void;
+    isMinimized: boolean;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -131,9 +133,12 @@ const Window: React.FC<WindowProps> = (props) => {
         return { x, y };
     };
 
+    const minimizeFunc = () => {
+        props.minimize && props.minimize();
+    };
 
     return ( 
-        <div>
+        <div style={props.isMinimized ? styles.minimized : {}}> 
             <div
             style={Object.assign({}, styles.window, {
                 width,
@@ -162,7 +167,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                 <p>hello this is a test</p>
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
-                                <Button/>
+                                <Button onClick={minimizeFunc}/>
                                 <Button onClick={maximize}/>
                                 <div style={{ paddingLeft: 2 }}>
                                     <Button onClick={props.setOpen}/>
@@ -271,6 +276,10 @@ const styles: StyleSheetCSS = {
         backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
         pointerEvents: 'none',
         position: 'absolute',
+    },
+    minimized: {
+        pointerEvents: 'none',
+        opacity: 0,
     },
 };
 

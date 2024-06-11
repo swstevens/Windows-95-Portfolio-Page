@@ -7,9 +7,21 @@ export interface DesktopProps {}
 
 const Desktop: React.FC<DesktopProps> = (props) => {
     const [isOpen, setIsOpen] = useState(false);
+    
+    const [isMinimized, setIsMinimized] = useState(false);
+    const [height, setHeight] = useState(250);
+    const [width, setWidth] = useState(250);
+    const [top, setTop] = useState(25);
+    const [left, setLeft] = useState(25);
+
+    const minimize = () => {
+        setIsMinimized(!isMinimized)
+    } 
 
     const showWindow = () => {
-        setIsOpen(!isOpen)
+        if (isOpen == false) {
+            setIsOpen(!isOpen);
+        }
     } 
 
     return ( 
@@ -20,9 +32,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 shortcutName={"banana"}
             />
             </div>
+            <div onMouseDown={minimize}>
+            <DesktopShortcut
+                shortcutName={"minimizer"}
+            />
+            </div>
         </div>
-        {isOpen && <Window width={250} height={250} top={25}
-            left={25} setOpen={showWindow}
+        {isOpen && <Window width={width} height={height} top={top}
+            left={left} setOpen={showWindow} minimize={minimize} isMinimized={isMinimized}
         />}
         </>
     )

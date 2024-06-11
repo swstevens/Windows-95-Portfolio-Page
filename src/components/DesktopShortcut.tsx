@@ -3,15 +3,17 @@ import React from "react";
 export interface DesktopShortcutProps {
     // icon: string,
     shortcutName: string;
-    // onOpen: () => void;
+    onOpen?: () => void;
 }
 
 const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 //    icon,
    shortcutName,
-//    onOpen,
+
 }) => {
     const shortcutId = shortcutName;
+
+
     return (
         <div
         id={`${shortcutId}`}
@@ -33,7 +35,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 
 const styles: StyleSheetCSS = {
     appShortcut: {
-        position: 'absolute',
+        position: 'relative',
         width: 56,
 
         justifyContent: 'center',
