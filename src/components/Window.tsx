@@ -162,8 +162,8 @@ const Window: React.FC<WindowProps> = (props) => {
                             style={Object.assign({}, styles.topBar)}
                         >
                             <div style={styles.topHeader}>
-                                <i className="fas fa-bars"></i>
-                                <div style={{ width: 16 }} />
+                                <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
+                                <div style={{ width: 4 }} />
                                 <p>hello this is a test</p>
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
@@ -252,7 +252,9 @@ const styles: StyleSheetCSS = {
         boxSizing: 'border-box',
     },
     topHeader: {
+        // height:20,
         flex: 1,
+        alignItems: 'center',
     },
     spacer: {
         width: '100%',
@@ -280,6 +282,10 @@ const styles: StyleSheetCSS = {
     minimized: {
         pointerEvents: 'none',
         opacity: 0,
+    },
+    windowBarIcon: {
+        paddingLeft: 2,
+        height:16,
     },
 };
 

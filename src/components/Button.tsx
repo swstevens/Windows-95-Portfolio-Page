@@ -15,8 +15,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
         <div 
             onClick={handleClick}
+            style={styles.outerBorder}
         >
-            <div style={styles.button}>
+            <div style={styles.innerBorder}>
                 <img src={props.img}/>
             </div>
         </div>
@@ -24,13 +25,20 @@ const Button: React.FC<ButtonProps> = (props) => {
 };
 
 const styles: StyleSheetCSS = {
-    button: {
+    outerBorder: {
+        border: `1px solid ${'black'}`,
+        borderTopColor: 'white',
+        borderLeftColor: 'white',
         background: 'lightGray',
-        width: 16,
-        height: 16,
-        cursor: 'pointer',
 
-    }
+        cursor: 'pointer',
+    },
+    innerBorder: {
+        border: `1px solid ${'darkGray'}`,
+        borderTopColor: 'lightGray',
+        borderLeftColor: 'lightGray',
+        flex: 1,
+    },
 
 }
 
