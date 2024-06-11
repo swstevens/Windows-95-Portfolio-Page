@@ -24,6 +24,10 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         }
     } 
 
+    const closeWindow = () => {
+        setIsOpen(false)
+    }
+
     return ( 
         <>
         <div style={styles.desktop} >
@@ -39,7 +43,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             </div>
         </div>
         {isOpen && <Window width={width} height={height} top={top}
-            left={left} setOpen={showWindow} minimize={minimize} isMinimized={isMinimized}
+            left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
         />}
         </>
     )
