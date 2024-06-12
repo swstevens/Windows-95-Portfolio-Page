@@ -15,6 +15,11 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [top, setTop] = useState(25 - 6);
     const [left, setLeft] = useState(25);
 
+    window.addEventListener('onresize',function(){  
+        setHeight(window.innerHeight - 50 - 12);
+        setWidth(window.innerWidth - 50)
+    })
+
     const minimize = () => {
         if (isOpen) {
             setIsMinimized(!isMinimized)
@@ -39,11 +44,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 shortcutName={"banana"}
             />
             </div>
-            <div onMouseDown={minimize}>
-            <DesktopShortcut
-                shortcutName={"minimizer"}
-            />
-            </div>
         </div>
         {isOpen && <Window width={width} height={height} top={top}
             left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
@@ -60,6 +60,8 @@ const styles: StyleSheetCSS = {
         minHeight: '100%',
         flex: 1,
         backgroundColor: '#3e9697',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     toolbar: {
         position: 'absolute',
@@ -68,6 +70,7 @@ const styles: StyleSheetCSS = {
         height: '24px',
         border: `1px solid ${'lightgray'}`,
         borderTopColor: 'white',
+        zIndex: 100000,
 
         padding: 2,
         paddingBottom:3,

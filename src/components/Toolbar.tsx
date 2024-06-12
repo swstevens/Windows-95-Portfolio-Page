@@ -34,10 +34,10 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
                     </div>
                 </div>}
             </div>
-            <div style={styles.tabContainerOuter}>
-                <div style={styles.tabContainer}>
-                    <p style={styles.containerText}>test text</p>
-                </div>
+            <div style={styles.timeContainerOuter}>
+                {/* <div style={styles.timeContainer}> */}
+                    <p style={styles.containerText}>12:00</p>
+                {/* </div> */}
             </div>
         </div>
     )
@@ -85,7 +85,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     containerText: {
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         paddingLeft:4,
         paddingRight:4,
     },
@@ -98,7 +98,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     center: {
-        alignItems: 'start',
+        justifyContent: 'start',
         width: 'fit-content',
         flexGrow: 1,
     },
@@ -113,7 +113,27 @@ const styles: StyleSheetCSS = {
         borderTopColor: 'white',
         marginLeft: '4px',
         marginRight: '4px',
-    }
+    },
+    timeContainerOuter: {
+        border: `1px solid ${'gray'}`,
+        borderBottomColor: 'white',
+        borderRightColor: 'white',
+        width: '56px',
+        height: '24px',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        // flex: 1,
+    },
+    timeContainer: {
+        display: 'flex',
+        border: `1px solid ${'gray'}`,
+        borderBottomColor: 'darkgray',
+        borderRightColor: 'darkgray',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+    },
 
 };
 
