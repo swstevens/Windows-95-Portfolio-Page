@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DesktopShortcut from './DesktopShortcut';
 import Window from "./Window";
+import Toolbar from './Toolbar';
 
 export interface DesktopProps {}
 
@@ -9,9 +10,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [isOpen, setIsOpen] = useState(true);
     
     const [isMinimized, setIsMinimized] = useState(false);
-    const [height, setHeight] = useState(window.innerHeight - 50);
+    const [height, setHeight] = useState(window.innerHeight - 50 - 12);
     const [width, setWidth] = useState(window.innerWidth - 50);
-    const [top, setTop] = useState(25);
+    const [top, setTop] = useState(25 - 6);
     const [left, setLeft] = useState(25);
 
     const minimize = () => {
@@ -47,6 +48,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         {isOpen && <Window width={width} height={height} top={top}
             left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
         />}
+        <div style={styles.toolbar}>
+            <Toolbar isOpen={isOpen} minimize={minimize}/>
+        </div>
         </>
     )
 }
@@ -56,6 +60,17 @@ const styles: StyleSheetCSS = {
         minHeight: '100%',
         flex: 1,
         backgroundColor: '#3e9697',
+    },
+    toolbar: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '24px',
+        border: `1px solid ${'lightgray'}`,
+        borderTopColor: 'white',
+
+        padding: 2,
+        backgroundColor: 'lightgray'
     }
 };
 
