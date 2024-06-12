@@ -25,16 +25,20 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const OBJECTS: {
         [key in string]:  {
             key: string;
+            icon: string
         };
     } = {
         test1: {
             key: 'test1',
+            icon: 'assets/windowExplorerIcon.png',
         },
         test2: {
             key: 'test2',
+            icon: 'assets/windowExplorerIcon.png',
         },
         test3: {
             key: 'test3',
+            icon: 'assets/windowExplorerIcon.png',
         },
     }
 
@@ -114,7 +118,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     }, [windows, focus, setFocus ,setWindows, getHighestZIndex])
 
     const  handleClickShortcut = (key:string) => {
-        addWindow(key,<Window onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
+        addWindow(key,<Window title={key} icon={'assets/windowExplorerIcon.png'} onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
             left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)} />)
     };
 

@@ -24,6 +24,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
                 return (
                     <div key={`win-${key}`} style={props.focus == key ? styles.centerContainerOuterOn : styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
                         <div style={props.focus == key ? styles.tabContainerOn : styles.tabContainer}>
+                            <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
                             <p style={styles.containerText}>{key}</p>
                         </div>
                     </div>
@@ -131,7 +132,11 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         flex: 1,
     },
-
+    windowBarIcon: {
+        paddingTop: 1,
+        paddingLeft: 4,
+        height:16,
+    },
 };
 
 export default Toolbar;

@@ -8,6 +8,8 @@ export interface WindowProps {
     close: () => void;
     minimize: () => void;
     onInteract: () => void;
+    title: string;
+    icon: string;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -169,9 +171,9 @@ const Window: React.FC<WindowProps> = (props) => {
                             style={Object.assign({}, styles.topBar)}
                         >
                             <div style={styles.topHeader}>
-                                <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
+                                <img src={props.icon} style={styles.windowBarIcon}></img>
                                 <div style={{ width: 4 }} />
-                                <p style={{color:'white'}}>hello this is a test</p>
+                                <p style={{color:'white'}}>{props.title}</p>
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button onClick={minimizeFunc} img="/assets/minimize.png"/>
