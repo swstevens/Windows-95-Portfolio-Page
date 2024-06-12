@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 
 export interface ToolbarProps {
     isMinimized: boolean,
+    isOpen: boolean,
     minimize: () => void,
 
 }
@@ -22,12 +23,12 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             </div>
             <div style={styles.spacer}/>
             <div style={styles.center}>
-                {props.isMinimized && <div style={styles.centerContainerOuter} onMouseDown={click}>
+                {props.isOpen && props.isMinimized && <div style={styles.centerContainerOuter} onMouseDown={click}>
                     <div style={styles.tabContainer}>
                         <p style={styles.containerText}>test text</p>
                     </div>
                 </div>}
-                {!props.isMinimized && <div style={styles.centerContainerOuterOn} onMouseDown={click}>
+                {props.isOpen && !props.isMinimized && <div style={styles.centerContainerOuterOn} onMouseDown={click}>
                     <div style={styles.tabContainerOn}>
                         <p style={styles.containerText}>test text</p>
                     </div>
