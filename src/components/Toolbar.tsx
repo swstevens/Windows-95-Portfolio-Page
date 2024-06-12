@@ -5,6 +5,7 @@ export interface ToolbarProps {
     isMinimized: boolean,
     minimize: (key: string) => void,
     windows: DesktopWindows,
+    focus: string,
 }
 
 
@@ -21,8 +22,8 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             <div style={styles.center}>
                 {Object.keys(props.windows).map((key) => {
                 return (
-                    <div key={`win-${key}`} style={styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
-                        <div style={styles.tabContainer}>
+                    <div key={`win-${key}`} style={props.focus == key ? styles.centerContainerOuterOn : styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
+                        <div style={props.focus == key ? styles.tabContainerOn : styles.tabContainer}>
                             <p style={styles.containerText}>{key}</p>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ export interface DesktopProps {}
 const Desktop: React.FC<DesktopProps> = (props) => {
     const [isOpen, setIsOpen] = useState(true);
     const [windows, setWindows] = useState<DesktopWindows>({});
+    const [focus, setFocus] = useState(String);
     
     const [isMinimized, setIsMinimized] = useState(false);
     const [height, setHeight] = useState(window.innerHeight - 50 - 12);
@@ -22,6 +23,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     })
 
     const minimize = () => {
+        setFocus('')
         if (isOpen) {
             setIsMinimized(!isMinimized)
         }
@@ -54,6 +56,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     }
 
     const minimizeWindow = useCallback((key: string) => {
+        setFocus('')
         setWindows((prevWindows) => {
             const newWindows = { ...prevWindows };
             newWindows[key].minimized = true;
@@ -82,6 +85,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     }, [windows]);
 
     const addWindow = (key: string, element: JSX.Element) => {
+        setFocus(key)
         setWindows((prevWindows) => ({
             ...prevWindows,
             [key]: {
@@ -105,6 +109,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     const onWindowInteract = 
         (key: string) => {
+            setFocus(key);
             setWindows((prevWindows) => ({
                 ...prevWindows,
                 [key]: {
@@ -131,25 +136,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     </div>
                 );
             })}
-            {/* <div onMouseDown={() => handleClickShortcut('test')}>
-            <DesktopShortcut
-                shortcutName={"Item 1"}
-            />
-            </div>
-            <div onMouseDown={() => handleClickShortcut('test1')}>
-            <DesktopShortcut
-                shortcutName={"Item 2"}
-            />
-            </div>
-            <div onMouseDown={() => handleClickShortcut('test2')}>
-            <DesktopShortcut
-                shortcutName={"Item 3"}
-            />
-            </div> */}
         </div>
-        {/* {isOpen && <Window width={width} height={height} top={top}
-            left={left} setOpen={closeWindow} minimize={() => minimizeWindow(key)}
-        />} */}
 
         {Object.keys(windows).map((key) => {
             const element = windows[key].component; // sometimes desynced? 
@@ -166,13 +153,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     {React.cloneElement(element, {
                         key,
                         onClose: () => removeWindow(key),
-                        onInteract: () => onWindowInteract(key)
+                        onInteract: () => onWindowInteract(key),
+                        isFocus: key == focus,
                     })}
                 </div>
             );
         })}
         <div className='too' style={styles.toolbar}>
-            <Toolbar windows={windows} isMinimized={isMinimized} minimize={minimizeWindow} />
+            <Toolbar windows={windows} isMinimized={isMinimized} minimize={minimizeWindow} focus={focus}/>
         </div>
         </>
     )
