@@ -1,14 +1,18 @@
 import { TrackballControls } from "@react-three/drei";
-import React from "react";
+import React, { useEffect } from "react";
 
 export interface ToolbarProps {
-    isOpen: boolean,
+    isMinimized: boolean,
     minimize: () => void,
 
 }
 
 
 const Toolbar: React.FC<ToolbarProps> = (props) => {
+    const click = () =>{
+        props.minimize()
+    }
+
     return (
         <div style={{width: '100%', paddingRight: '6px'}}>
             <div style={styles.tabContainerOuter}>
@@ -17,7 +21,18 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
                 </div>
             </div>
             <div style={styles.spacer}/>
-            <div style={styles.center}></div>
+            <div style={styles.center}>
+                {props.isMinimized && <div style={styles.centerContainerOuter} onMouseDown={click}>
+                    <div style={styles.tabContainer}>
+                        <p style={styles.containerText}>test text</p>
+                    </div>
+                </div>}
+                {!props.isMinimized && <div style={styles.centerContainerOuterOn} onMouseDown={click}>
+                    <div style={styles.tabContainerOn}>
+                        <p style={styles.containerText}>test text</p>
+                    </div>
+                </div>}
+            </div>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
                     <p style={styles.containerText}>test text</p>
@@ -33,9 +48,43 @@ const styles: StyleSheetCSS = {
         borderBottomColor: 'black',
         borderRightColor: 'black',
         width: '100px',
+        height: '24px'
         // flex: 1,
     },
+    centerContainerOuter: {
+        border: `1px solid ${'white'}`,
+        borderBottomColor: 'black',
+        borderRightColor: 'black',
+        minWidth: '50px',
+        width: '50%',
+        height: '24px'
+        // flex: 1,
+    },
+    centerContainerOuterOn: {
+        border: `1px solid ${'black'}`,
+        borderBottomColor: 'white',
+        borderRightColor: 'white',
+        minWidth: '50px',
+        width: '50%',
+        height: '24px'
+        // flex: 1,
+    },
+    tabContainerOn: {
+        display: 'flex',
+        border: `1px solid ${'gray'}`,
+        borderBottomColor: 'darkgray',
+        borderRightColor: 'darkgray',
+        backgroundImage: `linear-gradient(45deg, white 25%, transparent 25%),
+        linear-gradient(-45deg, white 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, white 75%),
+        linear-gradient(-45deg, transparent 75%, white 75%)`,
+        backgroundSize: `4px 4px`,
+        backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
+        alignItems: 'center',
+        flex: 1,
+    },
     containerText: {
+        fontWeight: 'bold',
         paddingLeft:4,
         paddingRight:4,
     },

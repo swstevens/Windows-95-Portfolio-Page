@@ -49,7 +49,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
         />}
         <div className='too' style={styles.toolbar}>
-            <Toolbar isOpen={isOpen} minimize={minimize}/>
+            <Toolbar isMinimized={isMinimized} minimize={minimize}/>
         </div>
         </>
     )
@@ -70,6 +70,7 @@ const styles: StyleSheetCSS = {
         borderTopColor: 'white',
 
         padding: 2,
+        paddingBottom:3,
         backgroundColor: 'lightgray'
     }
 };
