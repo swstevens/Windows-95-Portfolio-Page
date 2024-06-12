@@ -164,7 +164,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div style={styles.topHeader}>
                                 <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
                                 <div style={{ width: 4 }} />
-                                <p>hello this is a test</p>
+                                <p style={{color:'white'}}>hello this is a test</p>
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button onClick={minimizeFunc} img="/assets/minimize.png"/>
