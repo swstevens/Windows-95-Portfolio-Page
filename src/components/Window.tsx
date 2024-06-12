@@ -192,20 +192,43 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div
                                 style={Object.assign({}, styles.insetBorder, {
                                     height: 16,
-                                    flex: 1,
+                                    flex: 3/4,
                                     alignItems: 'center',
                                 })}
                             >
                                 <p>test text</p>
-                            <div style={Object.assign({}, styles.buttons)}> 
+                            </div>
+                            {/* <div
+                                style={Object.assign(
+                                    {},
+                                    styles.insetBorder,
+                                    styles.bottomSpacer
+                                )}
+                            />
+                            <div
+                                style={Object.assign(
+                                    {},
+                                    styles.insetBorder,
+                                    styles.bottomSpacer
+                                )}
+                            /> */}
+                            <div
+                                style={Object.assign({}, styles.insetBorder, {
+                                    height: 16,
+                                    flex: 1/4,
+                                    alignItems: 'center',
+                                    marginLeft: 2,
+                                })}
+                            >
                                 <div
                                     style={{
-                                        alignItems: 'flex-end',
+                                        position: 'absolute',
+                                        bottom: 6,
+                                        right: 6,
                                     }}
                                 >
                                 <img src={'assets/windowResize.png'} style={{height: 12}}/>
                                 </div>
-                            </div>
                             </div>
                         </div>
                         <div
@@ -303,6 +326,11 @@ const styles: StyleSheetCSS = {
         height: 16,
 
         alignItems: 'center',
+    },
+    bottomSpacer: {
+        width: 16,
+        height: 16,
+        marginLeft: 2,
     },
     checkerboard: {
         backgroundImage: `linear-gradient(45deg, black 25%, transparent 25%),
