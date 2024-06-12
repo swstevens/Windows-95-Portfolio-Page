@@ -13,13 +13,13 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
         <div style={styles.tooblar}>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
-                    <p style={{paddingLeft:4,paddingRight:4}}>test text</p>
+                    <p style={styles.containerText}>test text</p>
                 </div>
             </div>
             <div style={styles.spacer}/>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
-                    <p style={{paddingLeft:4,paddingRight:4}}>test text</p>
+                    <p style={styles.containerText}>test text</p>
                 </div>
             </div>
         </div>
@@ -43,6 +43,10 @@ const styles: StyleSheetCSS = {
         borderRightColor: 'black',
 
         flex: 1,
+    },
+    containerText: {
+        paddingLeft:4,
+        paddingRight:4,
     },
     tabContainer: {
         display: 'flex',
