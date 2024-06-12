@@ -82,9 +82,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             />
             </div>
         </div>
-        {isOpen && <Window width={width} height={height} top={top}
+        {/* {isOpen && <Window width={width} height={height} top={top}
             left={left} setOpen={closeWindow} minimize={() => minimizeWindow('test')}
-        />}
+        />} */}
         {Object.keys(windows).map((key) => {
             const element = windows[key].component;
             return (
