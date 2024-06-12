@@ -7,6 +7,7 @@ export interface WindowProps {
     left: number;
     setOpen: () => void;
     minimize: () => void;
+    zIndex: number;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -137,7 +138,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     return ( 
-        <div> 
+        <div style={{zIndex: props.zIndex}}> 
             <div
             style={Object.assign({}, styles.window, {
                 width,

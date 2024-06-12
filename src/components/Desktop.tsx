@@ -62,11 +62,22 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         setWindows(activeWindows);
     }, [])
 
+    const getHighestZIndex = useCallback((): number => {
+        let zIndex = 0;
+        Object.keys(windows).forEach((key) => {
+            const window = windows[key];
+            if (window.zIndex > zIndex) {
+                zIndex = window.zIndex
+            }
+        });
+        return zIndex;
+    }, [])
+
     return ( 
         <>
         <div style={styles.desktop} >
             <div onMouseDown={() => addWindow('test',<Window width={width} height={height} top={top}
-            left={left} setOpen={() => removeWindow('test')} minimize={() => minimizeWindow('test')} />)}>
+            left={left} setOpen={() => removeWindow('test')} minimize={() => minimizeWindow('test')} zIndex={getHighestZIndex()+1}/>)}>
             <DesktopShortcut
                 shortcutName={"Item 1"}
             />
