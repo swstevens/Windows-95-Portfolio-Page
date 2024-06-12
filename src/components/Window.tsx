@@ -192,7 +192,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div
                                 style={Object.assign({}, styles.insetBorder, {
                                     height: 16,
-                                    flex: 3/4,
+                                    flex: 3/5,
                                     alignItems: 'center',
                                 })}
                             >
@@ -215,7 +215,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div
                                 style={Object.assign({}, styles.insetBorder, {
                                     height: 16,
-                                    flex: 1/4,
+                                    flex: 2/5,
                                     alignItems: 'center',
                                     marginLeft: 2,
                                 })}
