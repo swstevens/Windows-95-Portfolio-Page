@@ -22,23 +22,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         setWidth(window.innerWidth - 50)
     })
 
-    const minimize = () => {
-        setFocus('')
-        if (isOpen) {
-            setIsMinimized(!isMinimized)
-        }
-    } 
-
-    const showWindow = () => {
-        if (isOpen == false) {
-            setIsOpen(!isOpen);
-        }
-    } 
-
-    const closeWindow = () => {
-        setIsOpen(false)
-    }
-
     const OBJECTS: {
         [key in string]:  {
             key: string;
