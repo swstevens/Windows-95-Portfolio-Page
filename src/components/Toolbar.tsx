@@ -3,15 +3,12 @@ import React, { useEffect } from "react";
 
 export interface ToolbarProps {
     isMinimized: boolean,
-    minimize: () => void,
+    minimize: (key: string) => void,
     windows: DesktopWindows,
 }
 
 
 const Toolbar: React.FC<ToolbarProps> = (props) => {
-    const click = () =>{
-        props.minimize()
-    }
 
     return (
         <div style={{width: '100%', paddingRight: '6px'}}>
@@ -24,7 +21,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             <div style={styles.center}>
                 {Object.keys(props.windows).map((key) => {
                 return (
-                    <div key={`win-${key}`} style={styles.centerContainerOuter} onMouseDown={click}>
+                    <div key={`win-${key}`} style={styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
                         <div style={styles.tabContainer}>
                             <p style={styles.containerText}>{key}</p>
                         </div>

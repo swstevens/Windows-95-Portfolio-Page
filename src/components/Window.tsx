@@ -7,7 +7,7 @@ export interface WindowProps {
     left: number;
     setOpen: () => void;
     minimize: () => void;
-    zIndex: number;
+    onInteract: () => void;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -70,11 +70,13 @@ const Window: React.FC<WindowProps> = (props) => {
         window.addEventListener('mousemove', onDrag, false);
         window.addEventListener('mouseup', stopDrag, false);
     }
+
     const onDrag = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromDragProps(clientX, clientY);
         setIndicatorTop(y);
         setIndicatorLeft(x);
     }
+
     const stopDrag = ({ clientX, clientY }: any) => {
         setIsDragging(false);
         let { x, y } = getXYFromDragProps(clientX, clientY);
@@ -83,6 +85,7 @@ const Window: React.FC<WindowProps> = (props) => {
         window.removeEventListener('mousemove', onDrag, false);
         window.removeEventListener('mouseup', stopDrag, false);
     }
+
     const getXYFromDragProps = (
         clientX: number,
         clientY: number
@@ -107,11 +110,13 @@ const Window: React.FC<WindowProps> = (props) => {
         window.addEventListener('mousemove', onResize, false);
         window.addEventListener('mouseup', stopResize, false);
     }
+
     const onResize = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromResizeProps(clientX, clientY);
         setIndicatorHeight(y);
         setIndicatorWidth(x);
     }
+
     const stopResize = ({ clientX, clientY }: any) => {
         setIsDragging(false);
         let { x, y } = getXYFromResizeProps(clientX, clientY);
@@ -120,6 +125,7 @@ const Window: React.FC<WindowProps> = (props) => {
         window.removeEventListener('mousemove', onResize, false);
         window.removeEventListener('mouseup', stopResize, false);
     }
+
     const getXYFromResizeProps = (
         clientX: number,
         clientY: number
@@ -137,8 +143,12 @@ const Window: React.FC<WindowProps> = (props) => {
         props.minimize && props.minimize();
     };
 
+    const onWindowInteract = () => {
+        props.onInteract();
+    };
+
     return ( 
-        <div style={{zIndex: props.zIndex}}> 
+        <div onMouseDown={onWindowInteract} style={{zIndex: props.zIndex}}> 
             <div
             style={Object.assign({}, styles.window, {
                 width,
@@ -183,7 +193,6 @@ const Window: React.FC<WindowProps> = (props) => {
                                 alignItems: 'center',
                             })}
                         >
-                            <iframe src="https://swstevens.github.io" style={{height:'100%',width:'100%'}}/>
                         </div>
                         <div
                             style={Object.assign({}, styles.spacer)}

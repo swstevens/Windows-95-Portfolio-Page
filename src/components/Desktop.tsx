@@ -37,16 +37,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         setIsOpen(false)
     }
 
-    const addWindow = useCallback((key: string, element: JSX.Element) => {
-        setWindows((prevState) => ({
-            ...prevState,
-            [key]: {
-                zIndex: 1,
-                minimized: false,
-                component:  element,
-            },
-        }));
-    }, [])
+
 
     const minimizeWindow = useCallback((key: string) => {
         setWindows((prevWindows) => {
@@ -64,25 +55,56 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     const getHighestZIndex = useCallback((): number => {
         let zIndex = 0;
+        console.log(windows.keys)
         Object.keys(windows).forEach((key) => {
             const window = windows[key];
-            if (window.zIndex > zIndex) {
-                zIndex = window.zIndex
+            console.log(window)
+
+
+            console.log("banana",window.zIndex)
+            if (window) {
+                if (window.zIndex > zIndex) {
+                    zIndex = window.zIndex
+                }
             }
         });
+        console.log("apple ",zIndex)
         return zIndex;
+    }, [])
+
+    const addWindow = useCallback((key: string, element: JSX.Element) => {
+        setWindows((prevState) => ({
+            ...prevState,
+            [key]: {
+                zIndex: getHighestZIndex() + 1,
+                minimized: false,
+                component:  element,
+            },
+        }));
+    }, [getHighestZIndex]);
+
+    const setZIndex = useCallback((key: string) => {
+        console.log("setZIndex called for ",key)
+        setWindows((prevWindows) => {
+            const newWindows = { ...prevWindows };
+            console.log("old",newWindows[key].zIndex)
+            newWindows[key].zIndex = getHighestZIndex() + 1;
+            console.log("new",newWindows[key].zIndex)
+            return newWindows;
+        });
     }, [])
 
     return ( 
         <>
         <div style={styles.desktop} >
-            <div onMouseDown={() => addWindow('test',<Window width={width} height={height} top={top}
-            left={left} setOpen={() => removeWindow('test')} minimize={() => minimizeWindow('test')} zIndex={getHighestZIndex()+1}/>)}>
+            <div onMouseDown={() => addWindow('test',<Window onInteract={() => setZIndex('test')} width={width} height={height} top={top}
+            left={left} setOpen={() => removeWindow('test')} minimize={() => minimizeWindow('test')} />)}>
             <DesktopShortcut
                 shortcutName={"Item 1"}
             />
             </div>
-            <div onMouseDown={showWindow}>
+            <div onMouseDown={() => addWindow('test1',<Window onInteract={() => setZIndex('test1')} width={width} height={height} top={top}
+            left={left} setOpen={() => removeWindow('test1')} minimize={() => minimizeWindow('test1')} />)}>
             <DesktopShortcut
                 shortcutName={"Item 2"}
             />
@@ -115,7 +137,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             );
         })}
         <div className='too' style={styles.toolbar}>
-            <Toolbar windows={windows} isMinimized={isMinimized} minimize={() => minimizeWindow('test')} isOpen={isOpen}/>
+            <Toolbar windows={windows} isMinimized={isMinimized} minimize={minimizeWindow} />
         </div>
         </>
     )
