@@ -5,7 +5,7 @@ export interface WindowProps {
     height: number;
     top: number;
     left: number;
-    setOpen: () => void;
+    close: () => void;
     minimize: () => void;
     onInteract: () => void;
 }
@@ -148,7 +148,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     return ( 
-        <div onMouseDown={onWindowInteract} style={{zIndex: props.zIndex}}> 
+        <div onMouseDown={onWindowInteract}> 
             <div
             style={Object.assign({}, styles.window, {
                 width,
@@ -180,7 +180,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                 <Button onClick={minimizeFunc} img="/assets/minimize.png"/>
                                 <Button onClick={maximize} img="/assets/maximize.png"/>
                                 <div style={{ paddingLeft: 2 }}>
-                                    <Button onClick={props.setOpen} img="/assets/close.png"/>
+                                    <Button onClick={props.close} img="/assets/close.png"/>
                                 </div>
                             </div>
                         </div>
