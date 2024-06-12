@@ -7,7 +7,6 @@ export interface WindowProps {
     left: number;
     setOpen: () => void;
     minimize: () => void;
-    isMinimized: boolean;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -138,7 +137,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     return ( 
-        <div style={props.isMinimized ? styles.minimized : {}}> 
+        <div> 
             <div
             style={Object.assign({}, styles.window, {
                 width,
@@ -344,10 +343,6 @@ const styles: StyleSheetCSS = {
         backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
         pointerEvents: 'none',
         position: 'absolute',
-    },
-    minimized: {
-        pointerEvents: 'none',
-        opacity: 0,
     },
     windowBarIcon: {
         paddingLeft: 2,

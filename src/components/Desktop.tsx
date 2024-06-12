@@ -48,6 +48,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         }));
     }, [])
 
+    const minimizeWindow = useCallback((key: string) => {
+        setWindows((prevWindows) => {
+            const newWindows = { ...prevWindows };
+            newWindows[key].minimized = true;
+            return newWindows;
+        });
+    }, [])
+
     const removeWindow = useCallback((key: string) => {
         let activeWindows = { ...windows};
         delete activeWindows[key];
@@ -58,7 +66,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         <>
         <div style={styles.desktop} >
             <div onMouseDown={() => addWindow('test',<Window width={width} height={height} top={top}
-            left={left} setOpen={() => removeWindow('test')} minimize={minimize} isMinimized={isMinimized}/>)}>
+            left={left} setOpen={() => removeWindow('test')} minimize={() => minimizeWindow('test')} />)}>
             <DesktopShortcut
                 shortcutName={"Item 1"}
             />
@@ -75,7 +83,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             </div>
         </div>
         {isOpen && <Window width={width} height={height} top={top}
-            left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
+            left={left} setOpen={closeWindow} minimize={() => minimizeWindow('test')}
         />}
         {Object.keys(windows).map((key) => {
             const element = windows[key].component;
@@ -85,7 +93,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     style={Object.assign(
                         {},
                         { zIndex: windows[key].zIndex },
-                        // windows[key].minimized && styles.minimized
+                        windows[key].minimized && styles.minimized
                     )}
                 >
                     {React.cloneElement(element, {
@@ -96,7 +104,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             );
         })}
         <div className='too' style={styles.toolbar}>
-            <Toolbar isMinimized={isMinimized} minimize={minimize} isOpen={isOpen}/>
+            <Toolbar isMinimized={isMinimized} minimize={() => minimizeWindow('test')} isOpen={isOpen}/>
         </div>
         </>
     )
@@ -122,7 +130,11 @@ const styles: StyleSheetCSS = {
         padding: 2,
         paddingBottom:3,
         backgroundColor: 'lightgray'
-    }
+    },
+    minimized: {
+        pointerEvents: 'none',
+        opacity: 0,
+    },
 };
 
 export default Desktop;
