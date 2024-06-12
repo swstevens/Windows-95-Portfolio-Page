@@ -48,7 +48,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         {isOpen && <Window width={width} height={height} top={top}
             left={left} setOpen={closeWindow} minimize={minimize} isMinimized={isMinimized}
         />}
-        <div style={styles.toolbar}>
+        <div className='too' style={styles.toolbar}>
             <Toolbar isOpen={isOpen} minimize={minimize}/>
         </div>
         </>

@@ -10,13 +10,14 @@ export interface ToolbarProps {
 
 const Toolbar: React.FC<ToolbarProps> = (props) => {
     return (
-        <div style={styles.tooblar}>
+        <div style={{width: '100%', paddingRight: '6px'}}>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
                     <p style={styles.containerText}>test text</p>
                 </div>
             </div>
             <div style={styles.spacer}/>
+            <div style={styles.center}></div>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
                     <p style={styles.containerText}>test text</p>
@@ -27,22 +28,12 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
 }
 
 const styles: StyleSheetCSS = {
-    toolbar: {
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        height: '24px',
-        // backgroundColor: 'lightgray',
-        borderTopColor: 'white',
-        border: `1px solid ${'lightGray'}`,
-    },
     tabContainerOuter: {
-        display: 'flex',
         border: `1px solid ${'white'}`,
         borderBottomColor: 'black',
         borderRightColor: 'black',
-
-        flex: 1,
+        width: '100px',
+        // flex: 1,
     },
     containerText: {
         paddingLeft:4,
@@ -55,6 +46,11 @@ const styles: StyleSheetCSS = {
         borderRightColor: 'gray',
         alignItems: 'center',
         flex: 1,
+    },
+    center: {
+        alignItems: 'start',
+        width: 'fit-content',
+        flexGrow: 1,
     },
     tabIcon: {
         marginRight: 6,
