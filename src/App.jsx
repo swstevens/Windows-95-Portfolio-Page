@@ -1,14 +1,11 @@
 import './App.css'
+import Desktop from './components/Desktop' 
 
 function App() {
   return (
-    <>
-    <div className="whole">
-      <div className='wrapper'>
-        <span className='text'>loading</span>
-      </div>
-    </div>
- </>
+  <div className="App">
+    <Desktop />
+  </div>
  )
 }
 
