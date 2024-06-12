@@ -5,7 +5,7 @@ export interface ToolbarProps {
     isMinimized: boolean,
     isOpen: boolean,
     minimize: () => void,
-
+    windows: DesktopWindows,
 }
 
 
@@ -23,6 +23,15 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             </div>
             <div style={styles.spacer}/>
             <div style={styles.center}>
+                {Object.keys(props.windows).map((key) => {
+                return (
+                    <div style={styles.centerContainerOuter} onMouseDown={click}>
+                        <div style={styles.tabContainer}>
+                            <p style={styles.containerText}>{key}</p>
+                        </div>
+                    </div>
+                );
+            })}
                 {props.isOpen && props.isMinimized && <div style={styles.centerContainerOuter} onMouseDown={click}>
                     <div style={styles.tabContainer}>
                         <p style={styles.containerText}>test text</p>
