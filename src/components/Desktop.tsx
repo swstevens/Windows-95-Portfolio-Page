@@ -64,6 +64,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         });
     }, [setWindows])
 
+
+
     const removeWindow = useCallback((key: string) => {
         setWindows((prevWindows) => {
             const newWindows = { ...prevWindows };
@@ -96,17 +98,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         }));
     };
 
-    const setZIndex = useCallback((key: string) => {
-        console.log("setZIndex called for ",key)
-        setWindows((prevWindows) => {
-            const newWindows = { ...prevWindows };
-            console.log("old",newWindows[key].zIndex)
-            newWindows[key].zIndex = getHighestZIndex() + 1;
-            console.log("new",newWindows[key].zIndex)
-            return newWindows;
-        });
-    }, [setWindows, getHighestZIndex]);
-
     const onWindowInteract = 
         (key: string) => {
             setFocus(key);
@@ -118,6 +109,26 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 },
             }));
         };
+
+    const toggleMinimizeWindow = useCallback((key: string) => {
+        const newWindows = { ...windows };
+        const highestIndex = getHighestZIndex();
+        if (newWindows[key].minimized) {
+            newWindows[key].minimized = !newWindows[key].minimized;
+            setFocus(key)
+        } else {
+            if (focus == key) {
+                newWindows[key].minimized = !newWindows[key].minimized;
+                setFocus('')
+            }
+            else {
+                newWindows[key].zIndex = getHighestZIndex() + 1
+                setFocus(key)
+
+            }
+        }
+        setWindows(newWindows);
+    }, [windows, focus, setFocus ,setWindows, getHighestZIndex])
 
     const  handleClickShortcut = (key:string) => {
         addWindow(key,<Window onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
@@ -160,7 +171,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             );
         })}
         <div className='too' style={styles.toolbar}>
-            <Toolbar windows={windows} isMinimized={isMinimized} minimize={minimizeWindow} focus={focus}/>
+            <Toolbar windows={windows} isMinimized={isMinimized} minimize={toggleMinimizeWindow} focus={focus}/>
         </div>
         </>
     )
