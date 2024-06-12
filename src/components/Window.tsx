@@ -227,6 +227,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                         position: 'absolute',
                                         bottom: 6,
                                         right: 6,
+                                        pointerEvents: 'none',
                                     }}
                                 >
                                 <img src={'assets/windowResize.png'} style={{height: 12}}/>
