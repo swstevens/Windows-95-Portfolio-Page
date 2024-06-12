@@ -143,12 +143,9 @@ const Window: React.FC<WindowProps> = (props) => {
         props.minimize && props.minimize();
     };
 
-    const onWindowInteract = () => {
-        props.onInteract();
-    };
 
     return ( 
-        <div onMouseDown={onWindowInteract}> 
+        <div onMouseDown={() => props.onInteract()}> 
             <div
             style={Object.assign({}, styles.window, {
                 width,

@@ -37,7 +37,21 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         setIsOpen(false)
     }
 
-
+    const OBJECTS: {
+        [key in string]:  {
+            key: string;
+        };
+    } = {
+        test1: {
+            key: 'test1',
+        },
+        test2: {
+            key: 'test2',
+        },
+        test3: {
+            key: 'test3',
+        },
+    }
 
     const minimizeWindow = useCallback((key: string) => {
         setWindows((prevWindows) => {
@@ -45,7 +59,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             newWindows[key].minimized = true;
             return newWindows;
         });
-    }, [])
+    }, [setWindows])
 
     const removeWindow = useCallback((key: string) => {
         setWindows((prevWindows) => {
@@ -53,25 +67,21 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             delete newWindows[key];
             return newWindows;
         });
-    }, [])
+    }, [setWindows])
 
     const getHighestZIndex = useCallback((): number => {
-        let zIndex = 0;
-        console.log(Object.keys(windows))
+        let highestZIndex = 0;
         Object.keys(windows).forEach((key) => {
             const window = windows[key];
-
-            console.log("banana",window.zIndex)
             if (window) {
-                if (window.zIndex > zIndex) {
-                    zIndex = window.zIndex
-                }
+                if (window.zIndex > highestZIndex)
+                    highestZIndex = window.zIndex;
             }
         });
-        return zIndex;
-    }, [windows])
+        return highestZIndex;
+    }, [windows]);
 
-    const addWindow = useCallback((key: string, element: JSX.Element) => {
+    const addWindow = (key: string, element: JSX.Element) => {
         setWindows((prevWindows) => ({
             ...prevWindows,
             [key]: {
@@ -80,7 +90,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 component:  element,
             },
         }));
-    }, [getHighestZIndex]);
+    };
 
     const setZIndex = useCallback((key: string) => {
         console.log("setZIndex called for ",key)
@@ -91,17 +101,37 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             console.log("new",newWindows[key].zIndex)
             return newWindows;
         });
-    }, [windows, setWindows])
+    }, [setWindows, getHighestZIndex]);
 
-    const  handleClickShortcut = useCallback((key:string) => {
-        addWindow(key,<Window onInteract={() => setZIndex(key)} width={width} height={height} top={top}
+    const onWindowInteract = 
+        (key: string) => {
+            setWindows((prevWindows) => ({
+                ...prevWindows,
+                [key]: {
+                    ...prevWindows[key],
+                    zIndex: 1 + getHighestZIndex(),
+                },
+            }));
+        };
+
+    const  handleClickShortcut = (key:string) => {
+        addWindow(key,<Window onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
             left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)} />)
-    }, [addWindow]);
+    };
 
     return ( 
         <>
         <div style={styles.desktop} >
-            <div onMouseDown={() => handleClickShortcut('test')}>
+            {Object.keys(OBJECTS).map((key) => {
+                return (
+                    <div onMouseDown={() => handleClickShortcut(key)}>
+                        <DesktopShortcut
+                            shortcutName={key}
+                        />
+                    </div>
+                );
+            })}
+            {/* <div onMouseDown={() => handleClickShortcut('test')}>
             <DesktopShortcut
                 shortcutName={"Item 1"}
             />
@@ -111,17 +141,19 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 shortcutName={"Item 2"}
             />
             </div>
-            <div onMouseDown={showWindow}>
+            <div onMouseDown={() => handleClickShortcut('test2')}>
             <DesktopShortcut
                 shortcutName={"Item 3"}
             />
-            </div>
+            </div> */}
         </div>
         {/* {isOpen && <Window width={width} height={height} top={top}
             left={left} setOpen={closeWindow} minimize={() => minimizeWindow(key)}
         />} */}
+
         {Object.keys(windows).map((key) => {
-            const element = windows[key].component;
+            const element = windows[key].component; // sometimes desynced? 
+            console.log(Object.keys(windows))
             return (
                 <div
                     key={`win-${key}`}
@@ -134,6 +166,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     {React.cloneElement(element, {
                         key,
                         onClose: () => removeWindow(key),
+                        onInteract: () => onWindowInteract(key)
                     })}
                 </div>
             );
