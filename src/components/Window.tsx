@@ -182,7 +182,9 @@ const Window: React.FC<WindowProps> = (props) => {
                                 flex: 1,
                                 alignItems: 'center',
                             })}
-                        ></div>
+                        >
+                            <iframe src="https://swstevens.github.io" style={{height:'100%',width:'100%'}}/>
+                        </div>
                         <div
                             style={Object.assign({}, styles.spacer)}
                         ></div>
