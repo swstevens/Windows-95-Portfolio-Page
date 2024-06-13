@@ -15,6 +15,13 @@
         .column2 {
             flex: 0;
             /* Adjust styling for the second column (fixed) */
+            position: sticky;
+            top: 0; /* Stick to the top of the viewport */
+        }
+        .vertical-text {
+            writing-mode: vertical-rl; /* Vertical text */
+            text-align: center; /* Center horizontally */
+            line-height: 1.5; /* Adjust line height for readability */
         }
     </style>
 </head>
@@ -25,8 +32,10 @@
             <p>This is the flexible column.</p>
         </div>
         <div class="column2">
-            <!-- Content for the second column -->
-            <p>This is the fixed column.</p>
+            <!-- Content for the fixed column -->
+            <div class="vertical-text">
+                Vertical Text
+            </div>
         </div>
     </div>
 </body>
