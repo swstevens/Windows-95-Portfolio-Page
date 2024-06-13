@@ -13,9 +13,10 @@ const Portfolio = ()=> {
 
         <div className={'parent'} style={styles.parent}>
             <div style={styles.variableColumn}>
-            <div style={styles.verticalTextBox}>
-                <p style={styles.verticalText}><em>SHEA STEVENS</em></p>
+            <div style={styles.fixedColumnLeft}>
+            <p style={styles.text}>hello</p>
             </div>
+            <div style={styles.variableColumn}></div>
             </div>
             <div style={styles.fixedColumn}></div>
         </div>
@@ -40,6 +41,20 @@ const styles: StyleSheetCSS = {
         position: 'sticky',
         top: 0,
     },
+    fixedColumnLeft: {
+        flex: 0,
+        writingMode: 'vertical-rl',
+        minWidth: '64px', 
+        maxWidth: '64px',
+        position: 'sticky',
+        top: 0,
+        padding: 0,
+        margin: 0,
+        justifyContent: 'center',
+        alignItems:'center',
+        textAlign: 'center',
+        overflow: 'hidden'
+    },
     verticalTextBox: {
         writingMode: 'vertical-rl',
         // bottom: '0%',
@@ -61,6 +76,17 @@ const styles: StyleSheetCSS = {
         left: '-24px',
         textAlign: 'center',
         overflow: 'hidden'
+    },
+    text: {
+        flex: 0,
+        position: 'relative',
+        padding: 0,
+        margin: 0,
+        fontSize: '72px',
+        fontWeight: 'bolder',
+        font: '4rem "Microgramma", sans-serif',
+        left: '-24px',
+
     },
     navbar: {
         width: 300,
