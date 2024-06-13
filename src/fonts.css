@@ -86,3 +86,9 @@
   font-weight: normal;
 }
 
+@font-face {
+  src: url('fonts/Microgramma-Normal.ttf') format("ttf");
+  font-family: 'Microgramma';
+  font-style: normal;
+  font-weight: normal;
+}

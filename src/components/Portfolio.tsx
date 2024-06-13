@@ -23,9 +23,9 @@ const styles: StyleSheetCSS = {
     },
     verticalText: {
         fontSize: '72px',
-        fontWeight: 'bold',
+        fontWeight: 'bolder',
         fontStyle: 'italic',
-        font: '4rem "Gill Sans", sans-serif',
+        font: '4rem "Microgramma", sans-serif',
         position:'relative',
         height: 'fit-content',
         width: 'fit-content',
