@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
+import Portfolio from './Portfolio';
 export interface WindowProps {
     width: number;
     height: number;
@@ -192,6 +193,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                 alignItems: 'center',
                             })}
                         >
+                            <Portfolio/>
                         </div>
                         <div
                             style={Object.assign({}, styles.spacer)}
@@ -330,6 +332,7 @@ const styles: StyleSheetCSS = {
         borderTopColor: 'darkGray',
         borderLeftColor: 'darkGray',
         padding: 2,
+        overflow: 'hidden',
     },
     bottomBar: {
         flexShrink: 1,
