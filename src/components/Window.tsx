@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
 import Portfolio from './Portfolio';
+
 export interface WindowProps {
     width: number;
     height: number;
