@@ -14,7 +14,7 @@ const Portfolio = ()=> {
         <div className={'parent'} style={styles.parent}>
             <div style={styles.variableColumn}>
             <div style={styles.fixedColumnLeft}>
-            <p style={styles.text}>hello</p>
+            <p style={styles.text}>SHEA_STEVENS</p>
             </div>
             <div style={styles.variableColumn}></div>
             </div>
@@ -86,7 +86,8 @@ const styles: StyleSheetCSS = {
         fontWeight: 'bolder',
         font: '4rem "Microgramma", sans-serif',
         left: '-24px',
-
+        color: 'darkred',
+        opacity: 0.5,
     },
     navbar: {
         width: 300,
