@@ -209,7 +209,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     alignItems: 'center',
                                 })}
                             >
-                                <p>test text</p>
+                                <p style={{paddingLeft: 2}}>bottom test text</p>
                             </div>
                             {/* <div
                                 style={Object.assign(
