@@ -138,7 +138,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
         {Object.keys(windows).map((key) => {
             const element = windows[key].component; // sometimes desynced? 
-            console.log(Object.keys(windows))
             return (
                 <div
                     key={`win-${key}`}

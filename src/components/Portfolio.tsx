@@ -18,7 +18,10 @@ const Portfolio = ()=> {
             </div>
             <div style={styles.variableColumn}></div>
             </div>
-            <div style={styles.fixedColumn}></div>
+            <div style={styles.fixedColumn}>
+                <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
+                <p>That's Me!</p>
+            </div>
         </div>
     )
 };
@@ -40,6 +43,10 @@ const styles: StyleSheetCSS = {
         maxWidth: '300px',
         position: 'sticky',
         top: 0,
+        alignItems: "center",
+        display: 'inline-block',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
     fixedColumnLeft: {
         flex: 0,
@@ -98,4 +105,9 @@ const styles: StyleSheetCSS = {
         position: 'fixed',
         overflow: 'hidden',
     },
+    headspin: {
+        width: 150,
+        height: 150,
+        paddingTop: '48px',
+    }
 };
