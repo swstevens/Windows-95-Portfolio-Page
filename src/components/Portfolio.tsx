@@ -14,9 +14,87 @@ const Portfolio = ()=> {
         <div className={'parent'} style={styles.parent}>
             <div style={styles.variableColumn}>
             <div style={styles.fixedColumnLeft}>
-            <p style={styles.text}>SHEA_STEVENS</p>
+                <p style={styles.text}>SHEA_STEVENS</p>
             </div>
-            <div style={styles.variableColumn}></div>
+            <div style={styles.variableColumnInside}>
+            {/* <img src={me} style={styles.topImage} alt="" /> */}
+            <h1 >Welcome</h1>
+            <h3>I'm Shea Stevens</h3>
+            <br />
+            <div className="text-block">
+                <p>
+                    I'm a full stack software engineer looking for employment! In 2021 I graduated from 
+                    the University of Oregon
+                    with my BS in Computer Science. Minors in Mathematics and Japanese. 
+                </p>
+                <br />
+                <p>
+                    Thank you for taking the time to check out my portfolio. I
+                    really hope you enjoy exploring it as much as I enjoyed
+                    building it. If you have any questions or comments, feel
+                    free to contact me using{' '}
+                    <a href="mailto:sstevensw@gmail.com">
+                        sstevensw@gmail.com
+                    </a>
+                </p>
+            </div>
+            <div className="text-block">
+                <h3>About Me</h3>
+                <br />
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <br />
+
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <br />
+                <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <br />
+                <br />
+                <div style={{}}>
+                    <div
+                        style={{
+                            flex: 1,
+                            textAlign: 'justify',
+                            alignSelf: 'center',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <h3>My Hobbies</h3>
+                        <br />
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                        <br />
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                    <div style={styles.verticalImage}>
+                        <img src={'assets/cherry blossom 2024.jpg'} style={styles.image} alt="" />
+                        <p>
+                            <sub>
+                                <b>Figure 2:</b> Me, April 2024
+                            </sub>
+                        </p>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <p>
+                    If you have any questions or comments I would love to hear
+                    them. You can reach me through the{' '}
+                    at{' '}
+                    <a href="mailto:sstevensw@gmail.com">
+                        sstevensw@gmail.com
+                    </a>
+                </p>
+        </div>
+            </div>
             </div>
             <div style={styles.fixedColumn}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
@@ -32,10 +110,18 @@ const styles: StyleSheetCSS = {
     parent: {
         display: 'flex',
         width: '100%',
-        height: '100%'
-,    },
+        height: '100%',
+    },
     variableColumn: {
-        flex: 1
+        flex: 1,
+    },
+    variableColumnInside: {
+        flex: 1,
+        textAlign: 'left',
+        flexDirection: 'column',
+        // display: "inline-block",
+        overflow: 'auto',
+        paddingRight: '30px'
     },
     fixedColumn: {
         flex: 0,
@@ -109,5 +195,20 @@ const styles: StyleSheetCSS = {
         width: 150,
         height: 150,
         paddingTop: '48px',
-    }
+    },
+    image: {
+        height: '50%',
+        width: '50%',
+    },
+    verticalImage: {
+        alignSelf: 'center',
+        // width: '80%',
+        marginLeft: 32,
+        flex: 0.8,
+
+        alignItems: 'center',
+        // marginBottom: 32,
+        textAlign: 'center',
+        flexDirection: 'column',
+    },
 };

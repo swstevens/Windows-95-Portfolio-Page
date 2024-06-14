@@ -88,3 +88,10 @@ div {
       background-color: white;
   }
 }
+.text-block {
+  margin-top: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
