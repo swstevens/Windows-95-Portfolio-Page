@@ -87,7 +87,7 @@ const styles: StyleSheetCSS = {
         font: '4rem "Microgramma", sans-serif',
         left: '-24px',
         color: 'darkred',
-        opacity: 0.5,
+        opacity: 0.9,
     },
     navbar: {
         width: 300,
