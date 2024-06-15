@@ -27,6 +27,12 @@ div {
   color: #fff;
 }
 
+@font-face {
+  src: url('fonts/Microgramma-Normal.ttf') format("truetype");
+  font-family: 'Microgramma';
+  font-style: normal;
+  font-weight: normal;
+}
 
 .blinking-cursor {
   background-color: #fff;
@@ -95,3 +101,42 @@ div {
   flex-direction: column;
   text-align: justify;
 }
+
+h1 {
+  font-family: Microgramma, sans-serif;
+  font-size: 72px;
+}
+
+h2 {
+  font-family: MillenniumBold, 'Times New Roman', Times, serif;
+  font-size: 32px;
+}
+
+h3 {
+  font-family: MillenniumBold, 'Times New Roman', Times, serif;
+  font-size: 24px;
+  letter-spacing: 0px;
+}
+
+h4 {
+  font-family: MillenniumBold, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  letter-spacing: 0px;
+}
+
+li {
+  margin-bottom: 16px;
+}
+
+p {
+  font-family: Millennium, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0; 
+
+}
+br { 
+  display: block; 
+  margin-bottom: 0em; 
+  margin-top: 0em; 
+} 

@@ -18,7 +18,7 @@ const Portfolio = ()=> {
             </div>
             <div style={styles.variableColumnInside}>
             {/* <img src={me} style={styles.topImage} alt="" /> */}
-            <h1 >Welcome</h1>
+            <h1 >WELCOME</h1>
             <h3>I'm Shea Stevens</h3>
             <br />
             <div className="text-block">
@@ -121,7 +121,9 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
         // display: "inline-block",
         overflow: 'auto',
-        paddingRight: '30px'
+        paddingRight: '30px',
+        paddingLeft: '30px'
+
     },
     fixedColumn: {
         flex: 0,
@@ -162,9 +164,9 @@ const styles: StyleSheetCSS = {
     },
     verticalText: {
         fontSize: '72px',
-        fontWeight: 'bolder',
+        fontWeight: '900px',
         fontStyle: 'italic',
-        font: '4rem "Microgramma", sans-serif',
+        font: '"Microgramma", sans-serif',
         // blockSize: 'fit-content',
         left: '-24px',
         textAlign: 'center',
@@ -197,8 +199,9 @@ const styles: StyleSheetCSS = {
         paddingTop: '48px',
     },
     image: {
-        height: '50%',
-        width: '50%',
+        height: 'auto',
+        width: '100%',
+        paddingTop: '10%',
     },
     verticalImage: {
         alignSelf: 'center',
