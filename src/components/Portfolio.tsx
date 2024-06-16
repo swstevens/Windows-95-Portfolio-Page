@@ -127,8 +127,8 @@ const styles: StyleSheetCSS = {
     },
     fixedColumn: {
         flex: 0,
-        minWidth: '300px', 
-        maxWidth: '300px',
+        minWidth: '250px', 
+        maxWidth: '250px',
         position: 'sticky',
         top: 0,
         alignItems: "center",
