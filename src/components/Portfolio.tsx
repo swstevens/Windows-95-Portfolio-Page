@@ -196,7 +196,7 @@ const styles: StyleSheetCSS = {
     headspin: {
         width: 150,
         height: 150,
-        paddingTop: '48px',
+        paddingTop: '40px',
     },
     image: {
         height: 'auto',
