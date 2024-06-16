@@ -34,6 +34,21 @@ div {
   font-weight: normal;
 }
 
+@font-face {
+  src: url('fonts/aptos-mono.ttf') format("truetype");
+  font-family: 'AptosMono';
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: -0.5em;
+}
+
+@font-face {
+  src: url('fonts/aptos.ttf') format("truetype");
+  font-family: 'Aptos';
+  font-style: normal;
+  font-weight: normal;
+}
+
 .blinking-cursor {
   background-color: #fff;
   width: 0.8em;
@@ -108,20 +123,27 @@ h1 {
 }
 
 h2 {
-  font-family: MillenniumBold, 'Times New Roman', Times, sans-serif;
+  font-family: "AptosMono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 32px;
+  letter-spacing: -0.05em;
 }
 
 h3 {
-  font-family: MillenniumBold, 'Times New Roman', Times, sans-serif;
+  font-family: "AptosMono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 24px;
-  letter-spacing: 0px;
-}
+  letter-spacing: -0.05em;}
 
 h4 {
-  font-family: MillenniumBold, 'Times New Roman', Times, sans-serif;
+  font-family: "AptosMono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 18px;
-  letter-spacing: 0px;
+  /* letter-spacing: 0px; */
+  letter-spacing: -0.05em;
 }
 
 li {
@@ -129,10 +151,13 @@ li {
 }
 
 p {
-  font-family: Millennium, 'Times New Roman', Times, sans-serif;
+  font-family: "AptosMono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 0; 
+  letter-spacing: -0.05em;
 
 }
 br { 
