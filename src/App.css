@@ -28,7 +28,7 @@ div {
 }
 
 @font-face {
-  src: url('fonts/Microgramma-Normal.ttf') format("truetype");
+  src: url('fonts/Microgramma-Bold-Font.ttf') format("truetype");
   font-family: 'Microgramma';
   font-style: normal;
   font-weight: normal;
@@ -140,3 +140,97 @@ br {
   margin-bottom: 0em; 
   margin-top: 0em; 
 } 
+
+.div scanlines {
+  position:  absolute;
+  width: '100%';
+  height: '100%';
+  &.scanlines {
+    position: absolute;
+  }
+}
+
+.jpg {
+  background: url('https://pompompom.mehdi.cc/crt-art-for-scanlines.jpg') no-repeat;
+  background-size: cover;
+}
+
+/* REGULAR SCANLINES SETTINGS */
+
+:root {
+  --scan-width: 2px;
+  --scan-color: rgba(105, 105, 105, 0.253);
+  --scan-z-index: 2147483648;
+  --scan-opacity: 0.75;
+}
+
+/* Define the keyframes for the scanlines animation */
+@keyframes scanlines {
+  /* Add your keyframes here */
+}
+
+/* Define the keyframes for the scanline animation */
+@keyframes scanline {
+  /* Add your keyframes here */
+}
+
+/* Apply the scanlines animation to elements with the "scan-crt" class */
+.scan-crt {
+  animation: scanlines 1s steps(60) infinite;
+}
+
+/* Apply the scanline animation to elements with the "scan-moving" class */
+.scan-moving {
+  animation: scanline 6s linear infinite;
+}
+
+/* CSS .scanlines CLASS */
+
+.scanlines:before {
+  display: block;
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  height: calc(var(--scan-width) * 1);
+  z-index: calc(var(--scan-z-index) + 1);
+  background: var(--scan-color);
+  opacity: var(--scan-opacity);
+  animation: scanline 6s linear infinite;
+}
+
+/* Apply the styles to the "after" pseudo-element of elements with the "scanlines" class */
+.scanlines:after {
+  display: block;
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--scan-z-index);
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--scan-color) 51%
+  );
+  background-size: 100% calc(var(--scan-width) * 2);
+  animation: scanlines 3s steps(60) infinite;
+}
+
+/* ANIMATE UNIQUE SCANLINE */
+@keyframes scanline {
+    0% {
+        transform: translate3d(0,200000%,0);
+        /* // bottom: 0%; // to have a continuous scanline move, use this line (here in 0% step) instead of transform and write, in &:before, { position: absolute; bottom: 100%; } */
+    }
+}
+
+@keyframes scanlines {
+    0% {
+        background-position: 0 50%;
+        /* // bottom: 0%; // to have a continuous scanline move, use this line (here in 0% step) instead of transform and write, in &:before, { position: absolute; bottom: 100%; } */
+    }
+}

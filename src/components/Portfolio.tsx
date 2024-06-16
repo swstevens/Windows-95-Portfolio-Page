@@ -164,7 +164,7 @@ const styles: StyleSheetCSS = {
     },
     verticalText: {
         fontSize: '72px',
-        fontWeight: '900px',
+        fontWeight: '900',
         fontStyle: 'italic',
         font: '"Microgramma", sans-serif',
         // blockSize: 'fit-content',
