@@ -35,6 +35,13 @@ div {
 }
 
 @font-face {
+  src: url('fonts/levi.ttf') format("truetype");
+  font-family: 'Levi';
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
   src: url('fonts/aptos-mono.ttf') format("truetype");
   font-family: 'AptosMono';
   font-style: normal;
@@ -160,6 +167,17 @@ p {
   letter-spacing: -0.05em;
 
 }
+
+p.osText {
+  font-family: "Levi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0;
+}
+
 br { 
   display: block; 
   margin-bottom: 0em; 

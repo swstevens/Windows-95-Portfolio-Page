@@ -15,7 +15,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
         <div style={{width: '100%', paddingRight: '6px'}}>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
-                    <p style={styles.containerText}>test text</p>
+                    <p className='osText' style={styles.containerText}>test text</p>
                 </div>
             </div>
             <div style={styles.spacer}/>
@@ -25,7 +25,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
                     <div key={`win-${key}`} style={props.focus == key ? styles.centerContainerOuterOn : styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
                         <div style={props.focus == key ? styles.tabContainerOn : styles.tabContainer}>
                             <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
-                            <p style={styles.containerText}>{key}</p>
+                            <p className='osText' style={styles.containerText}>{key}</p>
                         </div>
                     </div>
                 );
@@ -34,7 +34,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             </div>
             <div style={styles.timeContainerOuter}>
                 {/* <div style={styles.timeContainer}> */}
-                    <p style={styles.containerText}>12:00</p>
+                    <p className='osText' style={styles.containerText}>12:00</p>
                 {/* </div> */}
             </div>
         </div>

@@ -175,7 +175,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div style={styles.topHeader}>
                                 <img src={props.icon} style={styles.windowBarIcon}></img>
                                 <div style={{ width: 4 }} />
-                                <p style={{color:'white'}}>{props.title}</p>
+                                <p className='osText' style={{color:'white'}}>{props.title}</p>:
                             </div>
                             <div style={Object.assign({}, styles.buttons)}> 
                                 <Button onClick={minimizeFunc} img="assets/minimize.png"/>
@@ -209,7 +209,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     alignItems: 'center',
                                 })}
                             >
-                                <p style={{paddingLeft: 2}}>bottom test text</p>
+                                <p className='osText' style={{paddingLeft: 2}}>bottom test text</p>
                             </div>
                             {/* <div
                                 style={Object.assign(
