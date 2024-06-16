@@ -10,12 +10,13 @@ export interface ToolbarProps {
 
 
 const Toolbar: React.FC<ToolbarProps> = (props) => {
-
+    const d = new Date();
     return (
         <div style={{width: '100%', paddingRight: '6px'}}>
             <div style={styles.tabContainerOuter}>
                 <div style={styles.tabContainer}>
-                    <p className='osText' style={styles.containerText}>test text</p>
+                    <img src="assets/logo2.png" style={styles.windowBarIcon}/>
+                    <p className='osText' style={styles.containerText}>Start</p>
                 </div>
             </div>
             <div style={styles.spacer}/>
@@ -34,7 +35,7 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             </div>
             <div style={styles.timeContainerOuter}>
                 {/* <div style={styles.timeContainer}> */}
-                    <p className='osText' style={styles.containerText}>12:00</p>
+                    <p className='osText' style={styles.containerText}>{d.getHours()}:{d.getMinutes().toString().padStart(2, '0')}</p>
                 {/* </div> */}
             </div>
         </div>
@@ -46,8 +47,9 @@ const styles: StyleSheetCSS = {
         border: `1px solid ${'white'}`,
         borderBottomColor: 'black',
         borderRightColor: 'black',
-        width: '100px',
-        height: '24px'
+        width: '64px',
+        height: '24px',
+        alignItems: 'center'
         // flex: 1,
     },
     centerContainerOuter: {
@@ -133,7 +135,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     windowBarIcon: {
-        paddingTop: 1,
+        // paddingTop: 1,
         paddingLeft: 4,
         height:16,
     },
