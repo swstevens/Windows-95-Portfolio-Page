@@ -209,7 +209,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     alignItems: 'center',
                                 })}
                             >
-                                <p className='osText' style={{paddingLeft: 2}}>bottom test text</p>
+                                <p className='osText' style={{paddingLeft: 2, paddingTop:2}}>Done</p>
                             </div>
                             {/* <div
                                 style={Object.assign(
@@ -233,6 +233,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     marginLeft: 2,
                                 })}
                             >
+                                <p className='osText' style={{paddingLeft: 2, paddingTop:2}}>Windows Explorer</p>
                                 <div
                                     style={{
                                         position: 'absolute',

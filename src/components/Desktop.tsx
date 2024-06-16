@@ -28,8 +28,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             icon: string
         };
     } = {
-        test1: {
-            key: 'test1',
+        About: {
+            key: 'About Me',
             icon: 'assets/windowExplorerIcon.png',
         },
         test2: {
