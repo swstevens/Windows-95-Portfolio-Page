@@ -183,6 +183,13 @@ br {
   margin-bottom: 0em; 
   margin-top: 0em; 
 } 
+@supports (-moz-appearance:none) {
+  br { 
+    display: block; 
+    margin-bottom: 1em; 
+    margin-top: 1em; 
+  } 
+}
 
 .div scanlines {
   position:  absolute;
