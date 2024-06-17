@@ -1,5 +1,5 @@
 import { TrackballControls } from "@react-three/drei";
-import React, { useEffect } from "react";
+import React, { useEffect, useState} from "react";
 
 export interface ToolbarProps {
     isMinimized: boolean,
@@ -10,7 +10,20 @@ export interface ToolbarProps {
 
 
 const Toolbar: React.FC<ToolbarProps> = (props) => {
-    const d = new Date();
+    
+      const [d, setD] = useState(new Date());
+
+    useEffect(
+        () => {
+        const intervalId = setInterval(() => {
+        
+            setD(new Date());
+        }, 60000);
+        return () => {
+            clearInterval(intervalId)
+        }
+        } 
+    )
     return (
         <div style={{width: '100%', paddingRight: '6px'}}>
             <div style={styles.tabContainerOuter}>

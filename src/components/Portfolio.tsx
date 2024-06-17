@@ -1,17 +1,27 @@
 import React from "react";
 import About from "./About";
+import { Home } from "./Home";
 import { useState } from "react";
 
 const Portfolio = ()=> {
     const [activePage, setActivePage] = useState('');
     const setActive = (page:string) => {
-        setActivePage(page)
+        setActivePage(page);
     };
     const isActive = (page:string) => {
         return activePage == page;
     };
     return (
-        <div className={'parent'} style={styles.parent}>
+        <>
+        {isActive('') && 
+        <Home 
+            setHome={() => setActive('')}
+            setAbout={() => setActive('About')}
+            setExperience={() => setActive('Experience')}
+            setProjects={() => setActive('Projects')}
+        />}
+
+        {!isActive('') && <div className={'parent'} style={styles.parent}>
             <div style={styles.variableColumn}>
             <div style={styles.fixedColumnLeft}>
                 <p style={styles.text}>SHEA_STEVENS</p>
@@ -23,10 +33,16 @@ const Portfolio = ()=> {
             <div style={styles.fixedColumn}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
                 <p>That's Me!</p>
-                <p style={styles.hyperlink} onClick={() => setActive('About')}><u>About Me</u></p>
+                <div style={{height:'64px'}}></div>
                 <p style={styles.hyperlink} onClick={() => setActive('')}><u>Home</u></p>
+                <p style={styles.hyperlink} onClick={() => setActive('About')}><u>About Me</u></p>
+                <p style={styles.hyperlink} onClick={() => setActive('Experience')}><u>Experience</u></p>
+                <p style={styles.hyperlink} onClick={() => setActive('Projects')}><u>Projects</u></p>
+
+
             </div>
-        </div>
+        </div>}
+        </>
     )
 };
 
@@ -144,5 +160,5 @@ const styles: StyleSheetCSS = {
         color: 'blue',
         cursor: 'pointer',
         paddingTop: '16px',
-    }
+    },
 };
