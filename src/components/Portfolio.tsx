@@ -1,29 +1,30 @@
 import React from "react";
 import About from "./About";
+import { useState } from "react";
 
 const Portfolio = ()=> {
+    const [activePage, setActivePage] = useState('');
+    const setActive = (page:string) => {
+        setActivePage(page)
+    };
+    const isActive = (page:string) => {
+        return activePage == page;
+    };
     return (
-        // <div>
-        // <div style={styles.verticalTextBox}>
-        //     <p style={styles.verticalText}><em>SHEA STEVENS</em></p>
-        // </div>
-        // <div style={styles.navbar}>
-        //     <p><em>some text</em></p>
-        // </div>
-        // </div>
-
         <div className={'parent'} style={styles.parent}>
             <div style={styles.variableColumn}>
             <div style={styles.fixedColumnLeft}>
                 <p style={styles.text}>SHEA_STEVENS</p>
             </div>
             <div style={styles.variableColumnInside}>
-                <About/>
+                {isActive('About') && <About/>}
             </div>
             </div>
             <div style={styles.fixedColumn}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
                 <p>That's Me!</p>
+                <p style={styles.hyperlink} onClick={() => setActive('About')}><u>About Me</u></p>
+                <p style={styles.hyperlink} onClick={() => setActive('')}><u>Home</u></p>
             </div>
         </div>
     )
@@ -139,4 +140,9 @@ const styles: StyleSheetCSS = {
         textAlign: 'center',
         flexDirection: 'column',
     },
+    hyperlink: {
+        color: 'blue',
+        cursor: 'pointer',
+        paddingTop: '16px',
+    }
 };
