@@ -23,7 +23,7 @@ const Portfolio = ()=> {
             <br />
             <div className="text-block">
                 <p>
-                    I'm a full stack software engineer looking for employment! In 2021 I graduated from 
+                    I'm a full stack software engineer looking for employment! I was born and raised in Hawaii, and in 2021 I graduated from 
                     the University of Oregon
                     with my BS in Computer Science. Minors in Mathematics and Japanese. 
                 </p>
@@ -41,18 +41,23 @@ const Portfolio = ()=> {
             <div className="text-block">
                 <h3>About Me</h3>
                 <br />
-                <p>
+                {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p> */}
+                <p>
+                    I've always been an avid tinkerer. From laptops to VCR's to robotics, my childhood was filled with taking things apart and seeing how they work. These days, I'm a coder. I love to do back end work, setting up the connections between all of the different systems in an environment. Whether it's a large monolith, or a swift microservice system, I'm always at home working through additions and optimizations.
                 </p>
                 <br />
-
-                <p>
+                {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p> */}
+                <p>
+                   My passion for programming also comes from the love of video games, which have shaped a lot of who I am today. When I would pick up my controller and be amazed by what could be created through code, I knew deep down that this was my path in life. That early era of janky, low poly models is something that I hold dear to my heart, and something that I replicate in my own personal projects. It helps that you don't need a super large team like newer releases, either.
                 </p>
                 <br />
-                <p>
+                {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                </p> */}
                 <br />
                 <br />
                 <div style={{}}>
@@ -66,12 +71,15 @@ const Portfolio = ()=> {
                     >
                         <h3>My Hobbies</h3>
                         <br />
-                        <p>
+                        {/* <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p> */}
+                        <p>
+                            Outside of programming, I've got quite a few hobbies. Flim photography is one. Nothing beats the physical mediums in my opnion, and the imperfections that come with film. You can check out some of my photographs here:
                         </p>
                         <br />
                         <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            And believe it or not, I'm quite a cook. While recipes can be quite formulaic, I try to keep my instincts in mind in the kitchen. Learn enough about the ingredients you cook with and you can come up with something pretty unique based on what's in your fridge. 
                         </p>
                     </div>
                     <div style={styles.verticalImage}>
