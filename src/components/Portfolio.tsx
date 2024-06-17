@@ -48,6 +48,10 @@ const Portfolio = ()=> {
                     I've always been an avid tinkerer. From laptops to VCR's to robotics, my childhood was filled with taking things apart and seeing how they work. These days, I'm a coder. I love to do back end work, setting up the connections between all of the different systems in an environment. Whether it's a large monolith, or a swift microservice system, I'm always at home working through additions and optimizations.
                 </p>
                 <br />
+                <p>
+                    Most of my experience lies in coding backend API's, but I'm rapidly building skills to work as a Full Stack Developer. By far, I used Python the most. It may not be the fastest language out there, but its lenient syntax let's you spin a small project up the fastest. When speed is a priority, I like to use C# or C++. And of course, I've got all those algorithm skills that they teach you in university too (Djikstra eat your heart out).
+                </p>
+                <br />
                 {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p> */}
@@ -76,6 +80,10 @@ const Portfolio = ()=> {
                         </p> */}
                         <p>
                             Outside of programming, I've got quite a few hobbies. Flim photography is one. Nothing beats the physical mediums in my opnion, and the imperfections that come with film. You can check out some of my photographs here:
+                        </p>
+                        <br />
+                        <p>
+                            My personal projects tend to include some form of retro game. Recently, I've really liked the Godot Engine, due to it's open source and free nature. After the debacle with Unity liscensing, I've seen a lot of indie devs move there as well. Probably the most interesting thing about it is the language it uses, aptly named Godot, which is it's own fork of C#. Perfect for those smaller teams looking to build a retro labor of love.
                         </p>
                         <br />
                         <p>
