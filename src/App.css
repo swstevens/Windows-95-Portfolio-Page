@@ -118,7 +118,7 @@ div {
 }
 .text-block {
   margin-top: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   display: flex;
   flex-direction: column;
   text-align: justify;

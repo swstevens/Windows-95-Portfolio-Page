@@ -22,6 +22,16 @@ const About = () => {
                         sstevensw@gmail.com
                     </a>
                 </p>
+                <br />
+                <div style={styles.resumeContainer}>
+                    <img style={styles.resumePrinter} alt="" src={'assets/printer.gif'} />
+                    <div style={styles.resumeContainerText}>
+                    <h3 style={{margin:0}}>{'Looking for my resume?'}</h3>
+                    <a rel="noreferrer" target="_blank" href={'https://docs.google.com/document/d/1t9EJOfTz4Sb-FSxG4EIjQnrurpKnozAG/edit?usp=sharing&ouid=111977760492753900558&rtpof=true&sd=true'}>
+                        <p>Click here to download it!</p>
+                    </a>
+                    </div>
+                </div>
             </div>
             <div className="text-block">
                 <h3>About Me</h3>
@@ -115,6 +125,23 @@ const styles: StyleSheetCSS = {
         // marginBottom: 32,
         textAlign: 'center',
         flexDirection: 'column',
+    },
+    resumeContainer: {
+        padding: 12,
+        boxSizing: 'border-box',
+        border: '2px solid black',
+        borderLeftWidth: 0,
+        borderRightWidth: 0,
+        width: '100%',
+        alignItems: 'center',
+    },
+    resumeContainerText: {
+        flexDirection: 'column',
+    },
+    resumePrinter: {
+        width: 56,
+        height: 48,
+        paddingRight: 24,
     },
 }
 

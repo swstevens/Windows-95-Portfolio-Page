@@ -9,11 +9,7 @@ const Projects = () => {
         <br />
         <div className="text-block">
             <p>
-            interesting text will go here
-            </p>
-            <br />
-            <p>
-            and add the image to the right or below the text
+            My current portfolio website, inspired by another portfolio website by Henry Heffernan. Written in React, Javascript, and CSS. Hosted on Github Pages.
             </p>
         </div>
 
@@ -23,11 +19,7 @@ const Projects = () => {
         <br />
         <div className="text-block">
             <p>
-            interesting text will go here
-            </p>
-            <br />
-            <p>
-            and add the image to the right or below the text
+            A case study on how older generations of game consoles rendered graphics. While WIP, has functional rendering of vertex jittering texture warping. Written in Godot and GLSL.
             </p>
         </div>
 
@@ -36,7 +28,7 @@ const Projects = () => {
         <br />
         <div className="text-block">
             <p>
-            Collaborated with up to 10 team members to schedule weekly practices and matches. Organized video reviews of practices and matches to improve communication, coordination, and cohesion between members.
+            My previous website, a more traditional portfolio page. Also written in React, Javascript, and CSS. Hosted on Github Pages.
             </p>
         </div>   
 
@@ -58,7 +50,7 @@ const Projects = () => {
         <br />
         <div className="text-block">
             <p>
-            Collaborated with up to 10 team members to schedule weekly practices and matches. Organized video reviews of practices and matches to improve communication, coordination, and cohesion between members.
+            A school project using Python and MongoDB that iteratively implemented RESTful practices into a fully complete website.
             </p>
         </div>   
         </>
