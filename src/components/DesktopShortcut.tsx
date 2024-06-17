@@ -48,7 +48,7 @@ const styles: StyleSheetCSS = {
         cursor: 'pointer',
         textOverflow: 'wrap',
         color: 'white',
-        fontSize: 8,
+        fontSize: 12,
         paddingRight: 2,
         paddingLeft: 2,
     },

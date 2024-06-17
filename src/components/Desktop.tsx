@@ -116,6 +116,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
     return ( 
         <>
+        {/* Instantiate the desktop shortcuts */}
         <div style={styles.desktop} >
             {Object.keys(OBJECTS).map((key) => {
                 return (
@@ -128,8 +129,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             })}
         </div>
 
+        {/* instantiate the windows */}
         {Object.keys(windows).map((key) => {
-            const element = windows[key].component; // sometimes desynced? 
+            const element = windows[key].component; 
             return (
                 <div
                     key={`win-${key}`}
