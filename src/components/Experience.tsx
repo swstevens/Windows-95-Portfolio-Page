@@ -31,8 +31,8 @@ Utilized Confluence to document internal records and highlight best practices on
 
         </div>
 
-        <h1 style={{padding: 0, marginBottom:0}} >UO ESPORTS</h1>
-        <h3 style={{margin:0, paddingLeft: '4px'}}>Eugene, 09/19-06/21</h3>
+        <h1 style={{padding: 0, marginBottom:0.1}} >UO ESPORTS</h1>
+        <h3 style={{margin:0.5, paddingLeft: '4px'}}>Eugene, 09/19-06/21</h3>
         <br />
         <div className="text-block">
             <p>
