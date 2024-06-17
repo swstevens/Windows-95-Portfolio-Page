@@ -32,14 +32,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             key: 'About Me',
             icon: 'assets/windowExplorerIcon.png',
         },
-        test2: {
-            key: 'test2',
-            icon: 'assets/windowExplorerIcon.png',
-        },
-        test3: {
-            key: 'test3',
-            icon: 'assets/windowExplorerIcon.png',
-        },
     }
 
     const minimizeWindow = useCallback((key: string) => {
