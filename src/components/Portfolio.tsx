@@ -3,6 +3,7 @@ import About from "./About";
 import { Home } from "./Home";
 import { useState } from "react";
 import Experience from "./Experience";
+import Projects from "./Projects";
 
 const Portfolio = ()=> {
     const [activePage, setActivePage] = useState('');
@@ -30,6 +31,7 @@ const Portfolio = ()=> {
             <div style={styles.variableColumnInside}>
                 {isActive('About') && <About/>}
                 {isActive('Experience') && <Experience/>}
+                {isActive('Projects') && <Projects/>}
             </div>
             </div>
             <div style={styles.fixedColumn}>

@@ -168,6 +168,17 @@ p {
 
 }
 
+a {
+  font-family: "AptosMono", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0; 
+  letter-spacing: -0.05em;
+
+}
+
 p.osText {
   font-family: "Levi", sans-serif;
   font-weight: 400;
