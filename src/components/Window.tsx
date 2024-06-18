@@ -117,15 +117,16 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const onResize = ({ clientX, clientY }: any) => {
         let { x, y } = getXYFromResizeProps(clientX, clientY);
-        setIndicatorHeight(y);
-        setIndicatorWidth(x);
+        setIndicatorHeight(Math.max(480,y));
+        setIndicatorWidth(Math.max(480,x));
+
     }
 
     const stopResize = ({ clientX, clientY }: any) => {
         setIsDragging(false);
         let { x, y } = getXYFromResizeProps(clientX, clientY);
-        setHeight(Math.max(100,y));
-        setWidth(Math.max(100,x));
+        setHeight(Math.max(480,y));
+        setWidth(Math.max(480,x));
         window.removeEventListener('mousemove', onResize, false);
         window.removeEventListener('mouseup', stopResize, false);
     }

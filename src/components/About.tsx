@@ -1,8 +1,10 @@
 import React from "react";
+import  { Link } from "react-router-dom";
 
 const About = () => {
     return (
         <>
+        <div style={{flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll'}}>
         <h1 >WELCOME</h1>
             <h3>I'm Shea Stevens</h3>
             <br />
@@ -105,6 +107,18 @@ const About = () => {
                     </a>
                 </p>
                 </div>
+            </div>
+            {/* <div style={styles.fixedColumn}>
+                <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
+                <p>That's Me!</p>
+                <div style={{height:'64px'}}></div>
+                <Link to="/">Home</Link>
+                <Link to="/About">About</Link>
+                <Link to="/Experience">Experience</Link>
+                <Link to="/Projects">Projects</Link>
+
+
+            </div> */}
             </>
     )
 }
@@ -142,6 +156,23 @@ const styles: StyleSheetCSS = {
         width: 56,
         height: 48,
         paddingRight: 24,
+    },
+    fixedColumn: {
+        flex: 0,
+        minWidth: '250px', 
+        maxWidth: '250px',
+        position: 'sticky',
+        top: 0,
+        alignItems: "center",
+        display: 'inline-block',
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+    },
+    headspin: {
+        width: 150,
+        height: 150,
+        paddingTop: '40px',
     },
 }
 

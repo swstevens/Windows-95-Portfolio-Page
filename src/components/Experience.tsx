@@ -2,7 +2,7 @@ import React from "react";
 
 const Experience = () => {
     return (
-        <>
+        <div style={{flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll'}}>
         <h1 style={{padding: 0, marginBottom:0}} >VINDICIA</h1>
         <h3 style={{margin:0, paddingLeft: '4px'}}>San Francisco, 03/22-12/23</h3>
         <br />
@@ -39,7 +39,7 @@ Utilized Confluence to document internal records and highlight best practices on
             Collaborated with up to 10 team members to schedule weekly practices and matches. Organized video reviews of practices and matches to improve communication, coordination, and cohesion between members.
             </p>
         </div>   
-        </>
+        </div>
     )
 }
 
@@ -60,6 +60,7 @@ const styles: StyleSheetCSS = {
         textAlign: 'center',
         flexDirection: 'column',
     },
+    
 
 }
 

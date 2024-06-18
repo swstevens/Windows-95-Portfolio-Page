@@ -4,6 +4,10 @@ import { Home } from "./Home";
 import { useState } from "react";
 import Experience from "./Experience";
 import Projects from "./Projects";
+import OverflowComponent from "./test";
+import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
+import Sidebar from "./Sidebar";
+import LeftBar from "./LeftBar";
 
 const Portfolio = ()=> {
     const [activePage, setActivePage] = useState('');
@@ -14,39 +18,19 @@ const Portfolio = ()=> {
         return activePage == page;
     };
     return (
-        <>
-        {isActive('') && 
-        <Home 
-            setHome={() => setActive('')}
-            setAbout={() => setActive('About')}
-            setExperience={() => setActive('Experience')}
-            setProjects={() => setActive('Projects')}
-        />}
-
-        {!isActive('') && <div className={'parent'} style={styles.parent}>
-            <div style={styles.variableColumn}>
-            <div style={styles.fixedColumnLeft}>
-                <p style={styles.text}>SHEA_STEVENS</p>
-            </div>
-            <div style={styles.variableColumnInside}>
-                {isActive('About') && <About/>}
-                {isActive('Experience') && <Experience/>}
-                {isActive('Projects') && <Projects/>}
-            </div>
-            </div>
-            { window.innerWidth >= 480 && <div style={styles.fixedColumn}>
-                <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
-                <p>That's Me!</p>
-                <div style={{height:'64px'}}></div>
-                <p style={styles.hyperlink} onClick={() => setActive('')}><u>Home</u></p>
-                <p style={styles.hyperlink} onClick={() => setActive('About')}><u>About Me</u></p>
-                <p style={styles.hyperlink} onClick={() => setActive('Experience')}><u>Experience</u></p>
-                <p style={styles.hyperlink} onClick={() => setActive('Projects')}><u>Projects</u></p>
-
-
-            </div>}
-        </div>}
-        </>
+        <div style={styles.parent}>
+        <Router>
+            <LeftBar/>
+            <Routes>
+            <Route path= '/' element= {<Home/>} />
+            <Route path= '/About' element= {<About/>} />
+            <Route path= '/Experience' element= {<Experience/>} />
+            <Route path= '/Projects' element= {<Projects/>} />
+            </Routes>
+            <Sidebar/>
+        </Router>
+        
+        </div>
     )
 };
 
@@ -62,13 +46,8 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     variableColumnInside: {
-        flex: 1,
-        textAlign: 'left',
-        flexDirection: 'column',
-        // display: "inline-block",
-        overflow: 'auto',
-        paddingRight: '30px',
-        paddingLeft: '30px'
+flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll',
+flexDirection:'column'
 
     },
     fixedColumn: {
@@ -81,20 +60,6 @@ const styles: StyleSheetCSS = {
         display: 'inline-block',
         justifyContent: 'center',
         textAlign: 'center',
-    },
-    fixedColumnLeft: {
-        flex: 0,
-        writingMode: 'vertical-rl',
-        minWidth: '64px', 
-        maxWidth: '64px',
-        position: 'sticky',
-        top: 0,
-        padding: 0,
-        margin: 0,
-        justifyContent: 'center',
-        alignItems:'center',
-        textAlign: 'center',
-        overflow: 'hidden'
     },
     verticalTextBox: {
         writingMode: 'vertical-rl',

@@ -1,14 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export interface HomeProps {
-    setHome: () => void;
-    setAbout: () => void;
-    setExperience: () => void;
-    setProjects: () => void;
-}
-
-export const Home: React.FC<HomeProps>  = (props) => {
+export const Home = () => {
     return (
+        <div style={{flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll'}}>
+        
         <div style={{height: '100%', width: '100%', flexDirection: 'column', alignItems:'center', justifyContent: 'center'}}>
             <div style={styles.half}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
@@ -16,12 +12,15 @@ export const Home: React.FC<HomeProps>  = (props) => {
             <div style={styles.half}>
                 <h1>SHEA STEVENS</h1>
                 <div>
-                <p style={styles.hyperlink} onClick={() => props.setHome()}><u>Home</u></p>
-                <p style={styles.hyperlink} onClick={() => props.setAbout()}><u>About Me</u></p>
-                <p style={styles.hyperlink} onClick={() => props.setExperience()}><u>Experience</u></p>
-                <p style={styles.hyperlink} onClick={() => props.setProjects()}><u>Projects</u></p>
+
+                <Link style={styles.link} to="/">Home</Link>
+                <Link style={styles.link} to="/About">About</Link>
+                <Link style={styles.link} to="/Experience">Experience</Link>
+                <Link style={styles.link} to="/Projects">Projects</Link>
+
                 </div>
             </div>
+        </div>
         </div>
     );
 };
@@ -38,5 +37,8 @@ const styles: StyleSheetCSS = {
         cursor: 'pointer',
         paddingLeft: '32px',
         paddingRight: '32px',
-    }
+    },
+    link: {
+        margin: '16px',
+    },
 }
