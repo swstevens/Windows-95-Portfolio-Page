@@ -19,7 +19,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         id={`${shortcutId}`}
         style={Object.assign({}, styles.appShortcut)}
     >
-        <img src="assets/myComputer.png"></img>
+        <img style={{height:48, width:48}} src="assets/myComputer.png"></img>
         <p
         id={`${shortcutId}`}
         className='osText'
@@ -37,20 +37,23 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 const styles: StyleSheetCSS = {
     appShortcut: {
         position: 'relative',
-        width: 56,
+        width: 72,
 
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
         textAlign: 'center',
+        marginTop: '12px',
+        paddingLeft: '8px',
+        paddingTop: '8px'
     },
     shortcutText: {
         cursor: 'pointer',
         textOverflow: 'wrap',
         color: 'white',
-        fontSize: 12,
-        paddingRight: 2,
-        paddingLeft: 2,
+        fontSize: 16,
+        // paddingRight: 2,
+        // paddingLeft: 2,
     },
 }
 

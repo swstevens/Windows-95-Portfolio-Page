@@ -162,8 +162,9 @@ const styles: StyleSheetCSS = {
         minHeight: '100%',
         flex: 1,
         backgroundColor: '#3e9697',
-        justifyContent: 'center',
-        alignItems: 'center'
+        // justifyContent: 'center',
+        // alignItems: 'center'
+        flexDirection: 'column',
     },
     toolbar: {
         position: 'absolute',
