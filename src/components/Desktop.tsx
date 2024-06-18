@@ -12,10 +12,12 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [focus, setFocus] = useState(String);
     
     const [isMinimized, setIsMinimized] = useState(false);
-    const [height, setHeight] = useState(Math.min(window.innerHeight - 50 - 12, 900));
-    const [width, setWidth] = useState(Math.min(window.innerWidth - 50, 1200));
-    const [top, setTop] = useState((window.innerHeight - height)/2 - 12 );
-    const [left, setLeft] = useState((window.innerWidth - width)/2 );
+    const [isMobile, setisMobile] = useState(window.innerWidth <= 480)
+
+    const [height, setHeight] = useState(isMobile ? window.innerHeight - 12 : Math.min(window.innerHeight - 50 - 12, 900));
+    const [width, setWidth] = useState(isMobile ? window.innerWidth : Math.min(window.innerWidth - 50, 1200));
+    const [top, setTop] = useState(isMobile ? 0 : (window.innerHeight - height)/2 - 12 );
+    const [left, setLeft] = useState(isMobile ? 0 : (window.innerWidth - width)/2 );
 
     window.addEventListener('onresize',function(){  
         setHeight(window.innerHeight - 50 - 12);

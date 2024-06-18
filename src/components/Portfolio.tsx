@@ -34,7 +34,7 @@ const Portfolio = ()=> {
                 {isActive('Projects') && <Projects/>}
             </div>
             </div>
-            <div style={styles.fixedColumn}>
+            { window.innerWidth >= 480 && <div style={styles.fixedColumn}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
                 <p>That's Me!</p>
                 <div style={{height:'64px'}}></div>
@@ -44,7 +44,7 @@ const Portfolio = ()=> {
                 <p style={styles.hyperlink} onClick={() => setActive('Projects')}><u>Projects</u></p>
 
 
-            </div>
+            </div>}
         </div>}
         </>
     )

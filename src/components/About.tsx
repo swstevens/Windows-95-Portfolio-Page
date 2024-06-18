@@ -27,7 +27,7 @@ const About = () => {
                     <img style={styles.resumePrinter} alt="" src={'assets/printer.gif'} />
                     <div style={styles.resumeContainerText}>
                     <h3 style={{margin:0}}>{'Looking for my resume?'}</h3>
-                    <a rel="noreferrer" target="_blank" href={'https://docs.google.com/document/d/1t9EJOfTz4Sb-FSxG4EIjQnrurpKnozAG/edit?usp=sharing&ouid=111977760492753900558&rtpof=true&sd=true'}>
+                    <a rel="noreferrer" target="_blank" href={'assets/Shea_Stevens_Res_June_New.pdf'} download>
                         <p>Click here to download it!</p>
                     </a>
                     </div>
