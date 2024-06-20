@@ -10,7 +10,7 @@ export const Home = () => {
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
             </div>
             <div style={window.innerWidth > 480 ? styles.half : styles.halfMobile}>
-                <h1>SHEA STEVENS</h1>
+                <h1 style={window.innerWidth <= 480 ? {textAlign: 'center'} : {}}>SHEA STEVENS</h1>
                 <div>
 
                 <Link style={styles.link} to="/">Home</Link>
