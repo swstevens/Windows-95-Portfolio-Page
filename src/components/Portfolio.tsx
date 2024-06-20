@@ -4,7 +4,7 @@ import { Home } from "./Home";
 import { useState } from "react";
 import Experience from "./Experience";
 import Projects from "./Projects";
-import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import LeftBar from "./LeftBar";
 

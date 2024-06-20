@@ -132,7 +132,8 @@ h1 {
 @media only screen and (max-width: 600px) {
   h1 {
     font-family: Microgramma, sans-serif;
-    font-size: 48px;
+    font-size: 36px;
+    flex-shrink: 1;
   }
   p {
     font-family: "AptosMono", sans-serif;
