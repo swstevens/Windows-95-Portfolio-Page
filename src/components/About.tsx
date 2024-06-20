@@ -1,10 +1,13 @@
 import React from "react";
 import  { Link } from "react-router-dom";
+import MobileHeader from "./MobileHeader";
 
 const About = () => {
     return (
         <>
+
         <div style={{flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll'}}>
+        <MobileHeader/>
         <h1 >WELCOME</h1>
             <h3>I'm Shea Stevens</h3>
             <br />
@@ -87,14 +90,14 @@ const About = () => {
                             And believe it or not, I'm quite a cook. While recipes can be quite formulaic, I try to keep my instincts in mind in the kitchen. Learn enough about the ingredients you cook with and you can come up with something pretty unique based on what's in your fridge. 
                         </p>
                     </div>
-                    <div style={styles.verticalImage}>
+                    { window.innerWidth > 480 ? <div style={styles.verticalImage}>
                         <img src={'assets/cherry blossom 2024.jpg'} style={styles.image} alt="" />
                         <p>
                             <sub>
                                 <b>Figure 2:</b> Me, April 2024
                             </sub>
                         </p>
-                    </div>
+                    </div> : <></> }
                 </div>
                 <br />
                 <br />

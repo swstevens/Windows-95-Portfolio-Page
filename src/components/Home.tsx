@@ -9,7 +9,7 @@ export const Home = () => {
             <div style={styles.half}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
             </div>
-            <div style={styles.half}>
+            <div style={window.innerWidth > 480 ? styles.half : styles.halfMobile}>
                 <h1>SHEA STEVENS</h1>
                 <div>
 
@@ -27,6 +27,12 @@ export const Home = () => {
 
 const styles: StyleSheetCSS = {
     half: {
+        height: '50%',
+        width: '100%',
+        alignItems: 'center',
+        flexDirection: 'column',
+    },
+    halfMobile: {
         height: '50%',
         width: '100%',
         alignItems: 'center',

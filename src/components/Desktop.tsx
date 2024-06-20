@@ -14,7 +14,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [isMinimized, setIsMinimized] = useState(false);
     const [isMobile, setisMobile] = useState(window.innerWidth <= 480)
 
-    const [height, setHeight] = useState(isMobile ? window.innerHeight - 12 : Math.min(window.innerHeight - 50 - 12, 900));
+    const [height, setHeight] = useState(isMobile ? window.innerHeight - 31 : Math.min(window.innerHeight - 50 - 31, 900));
     const [width, setWidth] = useState(isMobile ? window.innerWidth : Math.min(window.innerWidth - 50, 1200));
     const [top, setTop] = useState(isMobile ? 0 : (window.innerHeight - height)/2 - 12 );
     const [left, setLeft] = useState(isMobile ? 0 : (window.innerWidth - width)/2 );

@@ -4,7 +4,6 @@ import { Home } from "./Home";
 import { useState } from "react";
 import Experience from "./Experience";
 import Projects from "./Projects";
-import OverflowComponent from "./test";
 import { BrowserRouter as Router, Routes, Route, useLocation} from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import LeftBar from "./LeftBar";
@@ -20,14 +19,15 @@ const Portfolio = ()=> {
     return (
         <div style={styles.parent}>
         <Router>
-            <LeftBar/>
+            {window.innerWidth > 480 ? <LeftBar/> : <></> } 
             <Routes>
             <Route path= '/' element= {<Home/>} />
             <Route path= '/About' element= {<About/>} />
             <Route path= '/Experience' element= {<Experience/>} />
             <Route path= '/Projects' element= {<Projects/>} />
             </Routes>
-            <Sidebar/>
+            <Sidebar/> 
+
         </Router>
         
         </div>

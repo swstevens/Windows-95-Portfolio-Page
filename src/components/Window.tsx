@@ -57,7 +57,7 @@ const Window: React.FC<WindowProps> = (props) => {
             setTop(0);
             setLeft(0);
             setWidth(window.innerWidth);
-            setHeight(window.innerHeight);
+            setHeight(window.innerHeight-31);
             setIsMaximized(!isMaximized);
 
         }

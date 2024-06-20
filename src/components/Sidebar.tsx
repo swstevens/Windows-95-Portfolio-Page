@@ -14,7 +14,7 @@ export default function Sidebar(){
         return () => {};
     }, [location.pathname]);
     return (
-        isHome ? <></> : 
+        !isHome && window.innerWidth > 480 ? 
         <>
             <div className="testing tesing" style={styles.fixedColumn}>
                 <img src="assets/headspin-square-unscreen.gif" alt="my head" style={styles.headspin}/>
@@ -28,7 +28,9 @@ export default function Sidebar(){
                 </div>
 
             </div>
-        </>
+        </> 
+        : 
+        <></>
     )
 }
 

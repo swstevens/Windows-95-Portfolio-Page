@@ -1,8 +1,10 @@
 import React from "react";
+import MobileHeader from "./MobileHeader";
 
 const Projects = () => {
     return (
         <div style={{flexGrow: 1, minWidth: '0px',display: 'block', width: 0, maxWidth:'100%',overflow:'scroll'}}>
+        <MobileHeader/>
         <h1 style={{padding: 0, marginBottom:0}} >THIS WEBSITE</h1>
         <h3 style={{margin:0, paddingLeft: '4px'}}>A react website in all its Win95 goodness</h3>
         <a style={{paddingLeft: '4px'}} href="https://github.com/swstevens/internal-site">https://github.com/swstevens/internal-site</a>
