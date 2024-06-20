@@ -45,15 +45,14 @@ const styles: StyleSheetCSS = {
         textAlign: 'center',
         marginTop: '12px',
         paddingLeft: '8px',
-        paddingTop: '8px'
+        paddingTop: '8px',
+        cursor: 'pointer',
     },
     shortcutText: {
         cursor: 'pointer',
         textOverflow: 'wrap',
         color: 'white',
         fontSize: 16,
-        // paddingRight: 2,
-        // paddingLeft: 2,
     },
 }
 
