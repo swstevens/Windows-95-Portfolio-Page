@@ -35,10 +35,11 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
             <div style={styles.spacer}/>
             <div style={styles.center}>
                 {Object.keys(props.windows).map((key) => {
+                const item = props.windows[key];
                 return (
                     <div key={`win-${key}`} style={props.focus == key ? styles.centerContainerOuterOn : styles.centerContainerOuter} onMouseDown={() => props.minimize(key)}>
                         <div style={props.focus == key ? styles.tabContainerOn : styles.tabContainer}>
-                            <img src={'assets/windowExplorerIcon.png'} style={styles.windowBarIcon}></img>
+                            <img src={item.icon} style={styles.windowBarIcon}></img>
                             <p className='osText' style={styles.containerText}>{key}</p>
                         </div>
                     </div>

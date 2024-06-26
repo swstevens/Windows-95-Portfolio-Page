@@ -76,7 +76,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         return highestZIndex;
     }, [windows]);
 
-    const addWindow = (key: string, element: JSX.Element) => {
+    const addWindow = (key: string, element: JSX.Element, icon: string) => {
         setFocus(key)
         setWindows((prevWindows) => ({
             ...prevWindows,
@@ -84,6 +84,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 zIndex: getHighestZIndex() + 1,
                 minimized: false,
                 component:  element,
+                icon: icon
             },
         }));
     };
@@ -121,8 +122,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     }, [windows, focus, setFocus ,setWindows, getHighestZIndex])
 
     const  handleClickShortcut = (key:string, element: React.ReactNode) => {
-        addWindow(key,<Window title={key} icon={'assets/windowExplorerIcon.png'} onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
-            left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)}>{element}</Window>)
+        addWindow(key,<Window title={key} icon={OBJECTS[key].icon} onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
+            left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)}>{element}</Window>,OBJECTS[key].icon)
     };
 
     return ( 
