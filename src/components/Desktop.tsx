@@ -133,10 +133,11 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             {Object.keys(OBJECTS).map((key) => {
                 const element = OBJECTS[key].page;
                 return (
-                    <div key={`shortcut-${key}`} onMouseDown={() => handleClickShortcut(key, element)}>
+                    <div key={`shortcut-${key}`}  style={{flexShrink: 1}}>
                         <DesktopShortcut
                             shortcutName={key}
                             shortcutIcon={OBJECTS[key].icon}
+                            onMouseDown={() => handleClickShortcut(key, element)}
                         />
                     </div>
                 );

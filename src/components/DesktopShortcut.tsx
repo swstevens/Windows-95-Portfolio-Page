@@ -4,13 +4,14 @@ export interface DesktopShortcutProps {
     // icon: string,
     shortcutName: string;
     shortcutIcon: string;
-    onOpen?: () => void;
+    onMouseDown: () => void;
 }
 
 const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 //    icon,
    shortcutName,
    shortcutIcon,
+   onMouseDown
 
 }) => {
     const shortcutId = shortcutName;
@@ -21,6 +22,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         <div
         id={`${shortcutId}`}
         style={Object.assign({}, styles.appShortcut)}
+        onMouseDown={onMouseDown}
     >
         <img style={{height:48, width:48}} src={icon}></img>
         <p
