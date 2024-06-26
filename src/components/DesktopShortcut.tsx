@@ -3,15 +3,18 @@ import React from "react";
 export interface DesktopShortcutProps {
     // icon: string,
     shortcutName: string;
+    shortcutIcon: string;
     onOpen?: () => void;
 }
 
 const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 //    icon,
    shortcutName,
+   shortcutIcon,
 
 }) => {
     const shortcutId = shortcutName;
+    const icon = shortcutIcon;
 
 
     return (
@@ -19,7 +22,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         id={`${shortcutId}`}
         style={Object.assign({}, styles.appShortcut)}
     >
-        <img style={{height:48, width:48}} src="assets/myComputer.png"></img>
+        <img style={{height:48, width:48}} src={icon}></img>
         <p
         id={`${shortcutId}`}
         className='osText'
