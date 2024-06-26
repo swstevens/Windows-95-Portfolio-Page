@@ -5,8 +5,6 @@ import { DosPlayer as Instance, DosPlayerFactoryType } from 'js-dos';
 declare const Dos: DosPlayerFactoryType;
 
 interface PlayerProps {
-    width: number;
-    height: number;
     bundleUrl: string;
 }
 
@@ -25,7 +23,6 @@ export default function DosPlayer(props: PlayerProps) {
 
         setDos(instance);
         const elements = rootRef.current.getElementsByClassName('flex-grow-0');
-
         while (elements.length > 0) {
             elements[0].remove();
         }
@@ -39,14 +36,16 @@ export default function DosPlayer(props: PlayerProps) {
         if (dos !== null) {
             dos.run(props.bundleUrl);
         }
+        console.log('root',rootRef)
     }, [dos, props.bundleUrl]);
+
     return (
-        <div
+        <div className='apple'
             ref={rootRef}
             style={{
-                width: props.width,
-                height: props.height,
-                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                // position: 'absolute',
             }}
         ></div>
     );
