@@ -1,7 +1,9 @@
-import React, { act, useCallback, useState } from 'react';
+import React, { act, useCallback, useState, PropsWithChildren } from 'react';
 import DesktopShortcut from './DesktopShortcut';
 import Window from "./Window";
 import Toolbar from './Toolbar';
+import Portfolio from './Pages/Portfolio/Portfolio';
+import Doom from './Pages/Doom';
 
 export interface DesktopProps {}
 
@@ -27,12 +29,19 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const OBJECTS: {
         [key in string]:  {
             key: string;
-            icon: string
+            icon: string,
+            page: React.ReactNode,
         };
     } = {
         Portfolio: {
             key: 'About Me',
             icon: 'assets/windowExplorerIcon.png',
+            page: Portfolio(),
+        },
+        Doom: {
+            key: 'Doom',
+            icon: 'assets/windowExplorerIcon.png',
+            page: Doom(),
         },
     }
 
@@ -111,9 +120,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         setWindows(newWindows);
     }, [windows, focus, setFocus ,setWindows, getHighestZIndex])
 
-    const  handleClickShortcut = (key:string) => {
+    const  handleClickShortcut = (key:string, element: React.ReactNode) => {
         addWindow(key,<Window title={key} icon={'assets/windowExplorerIcon.png'} onInteract={() => onWindowInteract(key)} width={width} height={height} top={top}
-            left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)} />)
+            left={left} close={() => removeWindow(key)} minimize={() => minimizeWindow(key)}>{element}</Window>)
     };
 
     return ( 
@@ -121,8 +130,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         {/* Instantiate the desktop shortcuts */}
         <div style={styles.desktop} >
             {Object.keys(OBJECTS).map((key) => {
+                const element = OBJECTS[key].page;
                 return (
-                    <div key={`shortcut-${key}`} onMouseDown={() => handleClickShortcut(key)}>
+                    <div key={`shortcut-${key}`} onMouseDown={() => handleClickShortcut(key, element)}>
                         <DesktopShortcut
                             shortcutName={key}
                         />

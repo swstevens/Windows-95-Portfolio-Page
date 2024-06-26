@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, PropsWithChildren  } from 'react';
 import Button from './Button';
 import Portfolio from './Pages/Portfolio/Portfolio';
 
@@ -14,7 +14,7 @@ export interface WindowProps {
     icon: string;
 }
 
-const Window: React.FC<WindowProps> = (props) => {
+const Window: React.FC<PropsWithChildren <WindowProps>> = (props) => {
     const windowRef = useRef<any>(null);
     const indicatorRef = useRef<any>(null);
 
@@ -195,7 +195,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                 alignItems: 'center',
                             })}
                         >
-                            <Portfolio/>
+                            {props.children}
                         </div>
                         <div
                             style={Object.assign({}, styles.spacer)}
