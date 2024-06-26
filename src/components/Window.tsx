@@ -193,6 +193,7 @@ const Window: React.FC<PropsWithChildren <WindowProps>> = (props) => {
                             style={Object.assign({}, styles.insetBorder, {
                                 flex: 1,
                                 alignItems: 'center',
+                                pointerEvents: isDragging ? 'none' : 'auto',
                             })}
                         >
                             {props.children}
@@ -259,6 +260,8 @@ const Window: React.FC<PropsWithChildren <WindowProps>> = (props) => {
                 height: indicatorHeight,
                 top: indicatorTop,
                 left: indicatorLeft,
+                zIndex: 1000,
+                // backgroundColor: 'green',
                 // width,
                 // height,
                 // top,

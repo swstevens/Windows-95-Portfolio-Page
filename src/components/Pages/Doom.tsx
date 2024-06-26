@@ -10,9 +10,14 @@ export default function Doom(){
 }
 const styles: StyleSheetCSS = {
     box: {
-        display: 'flex',
+        // display: 'flex',
         flex: '1 1 auto',
         height: '100vh',
         border: 'none',
+        flexGrow: 1, 
+        minWidth: '0px',
+        display: 'block', 
+        width: 0, 
+        maxWidth:'100%',
       }
 }
