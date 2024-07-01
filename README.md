@@ -31,7 +31,7 @@ Before you begin, ensure you have the following installed:
    ```
 2. Navigate to the project directory:
    ```
-   cd internal-site
+   cd Windows-95-Portfolio-Page
    ```
 3. Install dependencies:
    ```
