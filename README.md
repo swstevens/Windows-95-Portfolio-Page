@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/swstevens/internal-site.git
+   git clone https://github.com/swstevens/Windows-95-Portfolio-Page.git
    ```
 2. Navigate to the project directory:
    ```
