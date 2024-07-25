@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useState, useEffect} from "react";
 
 export interface DesktopShortcutProps {
     // icon: string,
@@ -17,6 +17,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
     const shortcutId = shortcutName;
     const icon = shortcutIcon;
     const [doubleClickTimerActive, setDoubleClickTimerActive] = useState(false);
+    const [isSelected, setIsSelected] = useState(false)
 
     const handleClickShortcut = useCallback(() => {
         if (doubleClickTimerActive) {
@@ -25,12 +26,31 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
             return;
         }
         setDoubleClickTimerActive(true);
+        setIsSelected(true)
         // set double click timer
         setTimeout(() => {
             setDoubleClickTimerActive(false);
         }, 300);
     }, [doubleClickTimerActive, onMouseDown]);
 
+    const handleClickOutside = useCallback(
+        (event: MouseEvent) => {
+            // @ts-ignore
+            const targetId = event.target.id;
+            if (targetId !== shortcutId) {
+                setIsSelected(false);
+            }
+        },
+        [isSelected, setIsSelected, shortcutId]
+    );
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isSelected, handleClickOutside]);
+    
     return (
         <div
         id={`${shortcutId}`}
