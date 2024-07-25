@@ -34,10 +34,14 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
     }, [doubleClickTimerActive, onMouseDown]);
 
     const handleClickOutside = useCallback(
+        
         (event: MouseEvent) => {
             // @ts-ignore
             const targetId = event.target.id;
+            console.log(targetId)
+            console.log(shortcutId)
             if (targetId !== shortcutId) {
+                console.log('you fail')
                 setIsSelected(false);
             }
         },
@@ -57,13 +61,20 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         style={Object.assign({}, styles.appShortcut)}
         onMouseDown={handleClickShortcut}
     >
-        <img style={{height:48, width:48}} src={icon}></img>
+        <div id={`${shortcutId}`} style={Object.assign(
+            isSelected ? styles.checkerboard  : {}
+        )}>
+            <img style={{height:40, width:40, pointerEvents: 'none', userSelect:'none'}} src={icon}>    
+        </img>
+        </div>
+        <div style={{height: 2}}/>
         <p
         id={`${shortcutId}`}
         className='osText'
         style={Object.assign(
             {},
             styles.shortcutText,
+            isSelected ? styles.checkerboard  : {}
         )}
     >
         {shortcutName}
@@ -85,6 +96,15 @@ const styles: StyleSheetCSS = {
         paddingLeft: '8px',
         paddingTop: '8px',
         cursor: 'pointer',
+    },
+    checkerboard: {
+        backgroundImage: `linear-gradient(45deg, blue 25%, transparent 25%),
+        linear-gradient(-45deg, blue 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, blue 75%),
+        linear-gradient(-45deg, transparent 75%, blue 75%)`,
+        backgroundSize: `2px 2px`,
+        backgroundPosition: `0 0, 0 1px, 1px -1px, -1px 0px`,
+        pointerEvents: 'none',
     },
     shortcutText: {
         cursor: 'pointer',
