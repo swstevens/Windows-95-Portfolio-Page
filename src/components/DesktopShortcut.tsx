@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback, useState} from "react";
 
 export interface DesktopShortcutProps {
     // icon: string,
@@ -16,13 +16,26 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 }) => {
     const shortcutId = shortcutName;
     const icon = shortcutIcon;
+    const [doubleClickTimerActive, setDoubleClickTimerActive] = useState(false);
 
+    const handleClickShortcut = useCallback(() => {
+        if (doubleClickTimerActive) {
+            onMouseDown && onMouseDown();
+            setDoubleClickTimerActive(false);
+            return;
+        }
+        setDoubleClickTimerActive(true);
+        // set double click timer
+        setTimeout(() => {
+            setDoubleClickTimerActive(false);
+        }, 300);
+    }, [doubleClickTimerActive, onMouseDown]);
 
     return (
         <div
         id={`${shortcutId}`}
         style={Object.assign({}, styles.appShortcut)}
-        onMouseDown={onMouseDown}
+        onMouseDown={handleClickShortcut}
     >
         <img style={{height:48, width:48}} src={icon}></img>
         <p
