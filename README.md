@@ -1,6 +1,7 @@
 # Windows 95 Portfolio Website
 
-This project is a unique portfolio website that mimics the iconic Windows 95 aesthetic. Built with React, it offers a nostalgic user interface while showcasing modern web development skills.
+This project is a unique portfolio website that mimics the iconic Windows 95 aesthetic. Built with React, it offers a nostalgic user interface while showcasing modern web development skills. Hosted here:
+https://swstevens.github.io
 
 ## Features
 
