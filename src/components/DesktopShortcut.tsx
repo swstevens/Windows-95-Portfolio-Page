@@ -1,17 +1,21 @@
-import React, {useCallback, useState, useEffect} from "react";
+import React, {useCallback, useState, useRef, useEffect} from "react";
 
 export interface DesktopShortcutProps {
     // icon: string,
     shortcutName: string;
     shortcutIcon: string;
     onMouseDown: () => void;
+    topval: number;
+    leftval: number;
 }
 
 const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 //    icon,
    shortcutName,
    shortcutIcon,
-   onMouseDown
+   onMouseDown,
+   topval,
+   leftval,
 
 }) => {
     const shortcutId = shortcutName;
@@ -19,7 +23,11 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
     const [doubleClickTimerActive, setDoubleClickTimerActive] = useState(false);
     const [isSelected, setIsSelected] = useState(false)
 
-    const handleClickShortcut = useCallback(() => {
+    const [top, setTop] = useState(topval);
+    const [left, setLeft] = useState(leftval);
+    const [ isDragging, setIsDragging ]  = useState(false);
+
+    const handleClickShortcut = useCallback((event:any) => {
         if (doubleClickTimerActive) {
             onMouseDown && onMouseDown();
             setDoubleClickTimerActive(false);
@@ -27,6 +35,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         }
         setDoubleClickTimerActive(true);
         setIsSelected(true)
+        startDrag(event)
         // set double click timer
         setTimeout(() => {
             setDoubleClickTimerActive(false);
@@ -38,15 +47,57 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
         (event: MouseEvent) => {
             // @ts-ignore
             const targetId = event.target.id;
-            console.log(targetId)
-            console.log(shortcutId)
             if (targetId !== shortcutId) {
-                console.log('you fail')
                 setIsSelected(false);
             }
         },
         [isSelected, setIsSelected, shortcutId]
     );
+
+    const dragProps = useRef<{
+        dragStartX: any;
+        dragStartY: any;
+    }>();
+
+    const startDrag = (event:any) => {
+        const { clientX, clientY } = event;
+        setIsDragging(true);
+        event.preventDefault();
+        dragProps.current = {
+            dragStartX: clientX,
+            dragStartY: clientY,
+        };
+        window.addEventListener('mousemove', onDrag, false);
+        window.addEventListener('mouseup', stopDrag, false);
+    }
+
+    const onDrag = ({ clientX, clientY }: any) => {
+        let { x, y } = getXYFromDragProps(clientX, clientY);
+        setTop(y);
+        setLeft(x);
+    }
+
+    const stopDrag = ({ clientX, clientY }: any) => {
+        setIsDragging(false);
+        let { x, y } = getXYFromDragProps(clientX, clientY);
+        setTop(y);
+        setLeft(x);
+        window.removeEventListener('mousemove', onDrag, false);
+        window.removeEventListener('mouseup', stopDrag, false);
+    }
+
+    const getXYFromDragProps = (
+        clientX: number,
+        clientY: number
+    ): { x: number; y: number } => {
+        if (!dragProps.current) return { x: 0, y: 0 };
+        const { dragStartX, dragStartY } = dragProps.current;
+
+        const x = clientX - dragStartX + left;
+        const y = clientY - dragStartY + top;
+
+        return { x, y };
+    };
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -58,7 +109,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
     return (
         <div
         id={`${shortcutId}`}
-        style={Object.assign({}, styles.appShortcut)}
+        style={Object.assign({}, styles.appShortcut, { top, left })}
         onMouseDown={handleClickShortcut}
     >
         <div id={`${shortcutId}`} style={Object.assign(
@@ -85,7 +136,7 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
 
 const styles: StyleSheetCSS = {
     appShortcut: {
-        position: 'relative',
+        position: 'absolute',
         width: 72,
 
         justifyContent: 'center',

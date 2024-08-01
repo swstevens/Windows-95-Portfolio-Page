@@ -31,17 +31,23 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             key: string;
             icon: string,
             page: React.ReactNode,
+            top: number,
+            left: number,
         };
     } = {
         Portfolio: {
             key: 'About Me',
             icon: 'assets/myComputer.png',
             page: Portfolio(),
+            top: 12,
+            left: 12,
         },
         Doom: {
             key: 'Doom',
             icon: 'assets/doom.ico',
             page: Doom(),
+            top: 92,
+            left: 12,
         },
     }
 
@@ -138,6 +144,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                             shortcutName={key}
                             shortcutIcon={OBJECTS[key].icon}
                             onMouseDown={() => handleClickShortcut(key, element)}
+                            topval={OBJECTS[key].top}
+                            leftval={OBJECTS[key].left}
                         />
                     </div>
                 );
